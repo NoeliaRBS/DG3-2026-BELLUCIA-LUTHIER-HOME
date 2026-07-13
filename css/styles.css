@@ -1,0 +1,2347 @@
+/* =========================================================TRASTES — LUTHERÍA DE AUTOR
+Stylesheet
+   ========================================================= */
+
+:root{
+  --green: #b7cd02;
+  --black: #0a0a0a;
+  --dark: #111111;
+  --cream: #ece7dc;
+  --cream-2: #e4dfd2;
+  --white: #ffffff;
+  --grey: #b8b8b8;
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-sub: 'Lato', sans-serif;
+
+  --container: 1240px;
+  --nav-h: 81px;
+  --services-icon-size: 73px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- Reset ---------- */
+*, *::before, *::after{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
+html{ scroll-behavior: auto; scroll-padding-top: var(--nav-h); }
+body{
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-sub);
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-x: hidden;
+  cursor: none;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; margin:0; padding:0; }
+h1,h2,h3{ margin:0px; font-family: var(--font-display); font-weight:400; }
+p{ margin:-4px;
+  transform: translate(6px, 4px);}
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+
+
+@media (hover:none){ body{ cursor:auto; } }
+
+/* ---------- Custom cursor ---------- */
+.cursor{
+  position: fixed;
+  top:0; left:0;
+  width: 26px; height:26px;
+  border-radius:50%;
+  background: var(--green);
+  box-shadow: 0 0 20px 6px rgba(183,205,2,.55), 0 0 40px 14px rgba(183,205,2,.25);
+  filter: blur(0.4px);
+  pointer-events:none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .25s ease, height .25s ease, opacity .25s ease;
+  mix-blend-mode: screen;
+}
+.cursor.is-hover{ width: 44px; height: 44px; }
+.cursor.is-click{ width: 16px; height:16px; }
+@media (hover:none){ .cursor{ display:none; } }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block;
+  font-family: var(--font-sub);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  padding: 16px 34px;
+  border-radius: 2px;
+  transition: transform .35s ease, background .35s ease, color .35s ease;
+}
+
+
+.services__title{
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate(6px, 16px);
+  opacity: 1;
+}
+
+
+
+
+
+.btn--primary{
+  background: var(--green);
+  color: #101000;
+}
+.btn--primary:hover{ transform: translateY(-3px); }
+.btn--outline{
+  border: 1px solid var(--green);
+  color: var(--green);
+  background: transparent;
+}
+.btn--outline:hover{
+  background: var(--green);
+  color: #101000;
+  transform: translateY(-3px);
+}
+
+/* ---------- Navbar ---------- */
+.navbar{
+  position: fixed;
+  top:0; left:0; right:0;
+  height: var(--nav-h);
+  z-index: 1000;
+  background: transparent;
+  transition: background.4s ease, backdrop-filter .4s ease, box-shadow .4s ease;
+}
+.navbar.is-scrolled{
+  background: rgba(10,10,10,.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.06);
+}
+.navbar__inner{
+  max-width: var(--container);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+
+.pt-tagline2{
+  translate: none;
+  rotate: none;
+  scale: 63%;
+  transform: translate(-163px, 214px);
+  opacity: 1;
+}
+
+.navbar__logo{ position: relative; }
+.navbar__logo img{ position: relative; height: 45px; width:auto;transform: translate(-8px, 3px); }
+.navbar__nav{ position: relative; }
+.navbar__nav ul{ display:flex; gap: 30px; }
+.navbar__nav a{
+  font-family: var(--font-sub);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+.navbar__nav a{ position:relative; }
+.navbar__nav a::after{
+  content:"";
+  position:absolute; left:0; bottom:-6px;
+  width:0; height:1px; background: var(--green);
+  transition: width .3s ease;
+}
+.navbar__nav a:hover::after{ width:100%; }
+.navbar__nav a.is-active{ color: var(--green); }
+.navbar__nav a.is-active::after{ width:100%; }
+.navbar__burger{
+  display:none;
+  width: 30px; height: 22px;
+  background:none; border:none;
+  flex-direction:column; justify-content:space-between;
+  cursor:pointer; padding:0;
+}
+.navbar__burger span{
+  height:2px; background:var(--white); width:100%;
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+.mobile-menu{
+  position: fixed; inset:0;
+  background: rgba(8,8,8,.98);
+  z-index: 999;
+  display:flex; align-items:center; justify-content:center;
+  transform: translateY(-100%);
+  transition: transform .5s ease;
+}
+.mobile-menu.is-open{ transform: translateY(0); }
+.mobile-menu ul{ text-align:center; }
+.mobile-menu li{ margin: 22px 0; }
+.mobile-menu a{
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+.mobile-menu a.is-active{ color: var(--green); }
+
+/* ---------- HERO ---------- */
+/* .hero usa CSS Grid únicamente para apilar sus capas (fondo, spotlight,
+   contenido, hint) unas sobre otras — es el único caso real donde hace
+   falta superponer elementos de página completa. Cada capa se alinea con
+   justify-self/align-self en vez de top/left/right/bottom. */
+.hero{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: 100vh;
+}
+.hero__layer{
+  grid-area: 1 / 1 / 2 / 2;
+}
+.hero__bg{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/bg-hero.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 69% center;
+}
+.hero__overlay{ position: relative; width: 100%; height: 100%;
+
+
+
+  @media (max-width: 640px) {
+
+    .hero__cta{
+        transform: translate(-3px, -9px);
+    }
+
+}
+
+
+
+
+@media (max-width: 640px){
+.hero__cta {
+  rotate: none;
+  scale: none;
+  transform: translate(-1px, 9px);
+  opacity: 1;
+}
+}
+
+
+  @media (max-width: 640px) {
+
+    .hero__bg{
+        background-position: center center;
+        background-size: cover;
+    }
+
+}
+
+
+
+
+  
+}
+.hero__spotlight{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .4s ease;
+  background: radial-gradient(
+    circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(183,205,2,.38) 0%,
+    rgba(183,205,2,.18) 10%,
+    rgba(183,205,2,.06) 18%,
+    transparent 28%
+  );
+  mix-blend-mode: screen;
+}
+.hero:hover .hero__spotlight,
+.hero.is-spotlight-active .hero__spotlight{
+  opacity: 1;
+}
+@media (hover:none){
+  .hero__spotlight{ display:none; }
+}
+.hero__guitar-accent{
+  position: relative;
+  align-self: end;
+  justify-self: end;
+  width: min(34vw, 460px);
+  height: auto;
+  margin: 0 4% 2vh 0; /* equivale a right:4%; bottom:2% del alto de sección */
+  opacity: .5;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.hero__content{
+  position: relative;
+  align-self: center;
+  justify-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: var(--container);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  text-align: left;
+  transform: translateY(-18px);
+}
+.hero__title-group{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: -37px -3px 0;
+  text-align: left;
+  cursor: pointer;
+  color: var(--white);
+  font: inherit;
+}
+.hero__title{
+  position: relative;
+  font-size: clamp(58px, 8.6vw, 116px);
+  line-height: .95;
+  letter-spacing: 1px;
+  color: var(--white);
+  transition: text-shadow .5s ease, color .5s ease;
+  transform: translate(0px, 0px); /* "TU SONIDO" + "MERECE UNA" se mueven juntas cambiando este valor, sin tocar el gap entre líneas */
+}
+/* Las dos líneas del título comparten estilo base (.hero__title-line)
+   pero cada una tiene además su propia clase — .hero__title-tu-sonido
+   y .hero__title-merece-una — para poder moverlas por separado con
+   margin/top/left sin afectar a la otra. */
+.hero__title-line{ position: relative; display:block; }
+.hero__title-tu-sonido,
+.hero__title-merece-una{ position: relative; }
+.hero__title-group.is-lit .hero__title{
+  color: var(--white);
+  -webkit-text-stroke: 1px rgba(183,205,2,.9);
+  text-stroke: 1px rgba(183,205,2,.9);
+  text-shadow:
+    0 0 10px rgba(183,205,2,.85),
+    0 0 26px rgba(183,205,2,.55),
+    0 0 54px rgba(183,205,2,.3);
+}
+
+
+
+
+
+
+.hero__historia{
+  position: relative;
+  width: min(659px, 56vw);
+  height: auto;
+  /* Superposición tipográfica intencional: el sello "HISTORIA PROPIA"
+     se monta sobre el renglón anterior por diseño. Es el único negativo
+     que se conserva en todo el Hero, y es puramente decorativo/tipográfico,
+     no estructural. */
+  margin: -57px -25px 3px;
+  transition: filter .5s ease;
+  transform: translate(0px, 0px); /* mover el sello de forma independiente */
+}
+.hero__title-group.is-lit .hero__historia{
+  filter: drop-shadow(0 0 14px rgba(183,205,2,.85)) drop-shadow(0 0 34px rgba(183,205,2,.5));
+}
+.hero__sparks{
+  position: absolute; /* capa de efecto puramente decorativa (destellos animados), no forma parte de la composición estructural */
+  inset: 0;
+  pointer-events: none;
+}
+.spark{
+  position:absolute;
+  width:6px; height:6px;
+  border-radius:50%;
+  background: var(--green);
+  box-shadow: 0 0 8px 2px rgba(183,205,2,.9);
+  opacity:1;
+  will-change: transform, opacity;
+}
+.hero__waves{
+  position: absolute; /* misma naturaleza que .hero__sparks: efecto, no layout */
+  inset: 0;
+  pointer-events: none;
+}
+.wave{
+  position:absolute;
+  top:50%; left:50%;
+  width: 46px; height:46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  opacity: .8;
+  will-change: transform, opacity;
+}
+.hero__hint{
+  position: relative;
+  align-self: end;
+  justify-self: end;
+  margin: 0 6% 65px 0; /* equivale a right:6%; bottom:65px */
+  display: inline-flex;
+  transform: translate(0px, 0px); /* mueve texto + ícono juntos, sin separarlos */
+}
+.hero__hint-pulse{
+  display:inline-flex;
+  gap: 8px;
+  font-family: var(--font-sub);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  color: var(--green);
+  transform: translate(-1174px, -653px);
+  white-space: nowrap;
+}
+.hero__hint-icon{ position: relative; width: 18px; height:18px; flex:none; }
+@keyframes hintPulse{
+  0%, 100%{ opacity: .55; transform: translateY(0); }
+  50%{ opacity: 1; transform: translateY(-2px); }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero__hint-pulse{ animation: none; }
+}
+@media (max-width: 900px){
+  .hero__hint{ display:none; }
+}
+.hero__text{
+  position: relative;
+  align-self: stretch;
+  font-family: var(--font-sub);
+  font-weight:400;
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--grey);
+  max-width: 480px;
+  text-align:left;
+  /* Igual que en la Historia Propia: el párrafo se monta levemente sobre
+     el cierre del sello por diseño (kerning vertical intencional). */
+  margin-top: -39px;
+  transform: translate(0px, 0px); /* mover el subtítulo de forma independiente */
+}
+.hero__cta{
+  position: relative;
+  font-weight: 900;
+  font-size: 13px;
+  padding: 12px 26px;
+  transform: translate(0px, 16px); /* mover el botón de forma independiente */
+}
+
+
+
+
+
+/* ---------- QUIENES SOMOS ---------- */
+/* Arquitectura pedida:
+   .about (Grid: galería | contenido)
+     .about__gallery (Flex: foto 1, foto 2)
+     .about__content (Flex column: heading, text, signature)
+       .about__heading (Grid interno: es el único caso, aparte de la
+         sección, donde Grid resuelve mejor que Flex, porque la corona
+         necesita convivir en la misma fila que "QUIENES" mientras
+         "SOMOS" queda en la fila de abajo, con los 4 elementos como
+         hijos independientes y no agrupados en filas propias)
+       .about__text (Flex column de párrafos)
+       .about__signature (Flex: alinea la firma a la derecha)
+   Cada bloque puede moverse con margin/padding/transform sin afectar
+   a los demás — no hay márgenes negativos ni valores encadenados. */
+.about{
+  background-color: var(--black); /* lienzo de respaldo: cualquier alto extra que agregue el padding se ve como continuación del negro de la propia textura, nunca como un hueco vacío */
+  background-image: url("../assets/images/bg-about.webp");
+  /* Tamaño NATIVO real del archivo (1915 x 959 px) — sin escalar ni
+     un solo píxel, ni hacia arriba ni hacia abajo. Así conserva
+     exactamente su calidad y proporción originales. Si la sección
+     necesita más alto, se agranda el contenedor (padding/min-height),
+     nunca esta imagen. */
+  background-size: 1915px 1174px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  color: #1b1b1b;
+  padding: 190px 94px 170px;
+}
+
+
+.about__foto {
+  transform: translate(215px, -688px);
+  scale: 67%;
+}
+
+
+
+
+
+
+.about__inner{
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+  max-width: var(--container);
+  margin: 0 auto;
+  transform: translate(37px, 10px);
+}
+
+/* Galería */
+.about__gallery{
+  position: relative;
+  display: flex;
+  gap: 18px;
+  height: 385px;
+}
+.about__photo{
+  position: relative; /* listo para top/left/transform individuales */
+  height: 100%;
+  width: auto;
+  aspect-ratio: 3.03 / 4.38;
+  display: block;
+  perspective: 1200px;
+}
+/* .about__photo--1 y .about__photo--2: mismo tamaño y estilo que
+   .about__photo (que sigue aportando el tamaño/aspecto compartido),
+   pero cada una es su propio selector: para mover solo la primera
+   foto se usa .about__photo--1, sin afectar a la segunda. */
+.about__photo--1,
+.about__photo--2{
+  position: relative;
+  transform: translate(0px, 0px);
+}
+
+/* Flip cards (restauración de la interacción original) */
+.flip-card__inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform .8s cubic-bezier(.4,.2,.2,1);
+  transform-style: preserve-3d;
+}
+.about__photo:hover .flip-card__inner,
+.about__photo:focus-within .flip-card__inner{
+  transform: rotateY(180deg);
+}
+.flip-card__face{
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+.flip-card__face img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.flip-card__face--back{
+  transform: rotateY(180deg);
+}
+@media (hover: none){
+  /* En touch, permitir dar vuelta con un tap manteniendo accesibilidad */
+  .about__photo{ cursor: pointer; }
+}
+
+/* Columna de contenido — Grid principal: cada bloque (heading, crown,
+   text, signature) es una celda propia y se puede desplazar
+   modificando una sola propiedad (margin/transform/top/left) sin
+   afectar a los demás. Heading y crown comparten la fila 1 a
+   propósito: la corona convive visualmente junto a "QUIENES", pero ya
+   no depende de la estructura interna del heading — es un bloque
+   hermano. Cada uno tiene además position:relative para poder
+   ajustarse con top/left/transform sin salir del flujo del grid. */
+.about__content{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 34px;
+  max-width: 460px;
+}
+.about__heading{ position: relative; grid-column: 1; grid-row: 1; }
+.about__crown{ position: relative; grid-column: 1; grid-row: 1; }
+.about__text{ position: relative; grid-column: 1; grid-row: 2; }
+.about__signature{ position: relative; grid-column: 1; grid-row: 3; }
+
+
+.about__crown { 
+  transform: translate();
+}
+
+/* Título — bar + QUIENES + SOMOS. Es un bloque único y se mueve
+   entero cambiando su margin/transform (no depende de la corona).
+   Dentro de ese bloque, la barra, "QUIENES" y "SOMOS" tienen cada
+   una su propia clase — no comparten un mismo selector — así que
+   también se pueden desplazar de a una sin tocar a las otras dos. */
+.about__heading{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "bar quienes"
+    ".   somos";
+  column-gap: 14px;
+  row-gap: 8px;
+  justify-self: start;
+  margin-left: 0; /* el título arranca en la misma línea vertical que el texto */
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-size: clamp(52px, 6.8vw, 74px);
+  line-height: 0.85;
+  transform: translate(-22px, 37px); /* mueve barra + línea + título QUIENES SOMOS como un solo bloque */
+}
+.about__bar{
+  position: relative;
+  grid-area: bar;
+  width: 8px;
+  height: 0.62em; /* proporcional a la altura de "QUIENES" */
+  margin-top: 0.06em;
+  background: var(--green);
+}
+.about__title-quienes{
+  position: relative;
+  grid-area: quienes;
+  display: block;
+  font-style: normal;
+  -webkit-text-stroke: 1.1px currentColor;
+  font-size: 104%;
+    transform: translate(5px, 3px);
+}
+/* Corona — bloque independiente del título. Se ubica en la misma fila
+   que el heading (comparten grid-row) y se mueve exclusivamente con
+   su propio margin-left/margin-top/top/left, sin tocar bar/QUIENES/SOMOS. */
+
+.about__title-somos{
+  position: relative;
+  grid-area: somos;
+  display: inline-block;
+  width: fit-content;
+  background: var(--green);
+  color: #101000;
+  font-style: normal;
+  -webkit-text-stroke: 1.2px currentColor; /* mismo grosor que QUIENES */
+  padding: 2px 14px 5px;
+}
+
+/* Texto */
+.about__text{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 460px;
+  font-family: var(--font-sub);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #333;
+  transform: translate(0px, 16px); /* mover el texto descriptivo de forma independiente */
+}
+
+.hero__historia{
+  translate: none;
+  rotate: none;
+  scale: none;
+  opacity: 1;
+  transform: translate(0px, 0px);
+}
+
+.hero__text--desktop {
+  rotate: none;
+  scale: none;
+  transform: translate(5px, 0px);
+  opacity: 1;
+}
+/* Firma — contenedor propio, alineable a la derecha sin mover el resto */
+.about__signature{
+  display: flex;
+  justify-content: flex-end;
+  transform: translate(61px, 7px); /* mover la firma "Tu Luthier" de forma independiente */
+}
+.about__signature img{
+  position: relative;
+  display: block;
+  width: 230px;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+
+  .about__signature img{
+      width: 200px;                  /* Ajustá el tamaño que quieras */
+      transform: translate(0px, -17px);
+      scale: 119%;
+  }
+
+}
+
+
+
+
+
+
+/* ---------- SERVICIOS ---------- */
+.services{
+  position: relative;
+  background: var(--black) url('../assets/images/bg-section-1.webp') center center / cover no-repeat;
+  padding: 0px 1px 200px;
+  overflow: hidden;
+}
+.services__grid{
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+.hero__text { 
+translate: none;
+rotate: none;
+scale: none;
+transform: translate(3px, -14px);
+opacity: 1;
+}
+
+.hero__historia  {
+  translate: none;
+  rotate: none;
+  scale: 89%;
+  opacity: 1;
+  transform: translate(-38px, -1px);
+}
+
+.services__col-text{
+  position: relative; /* .services__col-text agrupa: número 3 + SERVICIOS + QUE MÁS REALIZAMOS + los 3 servicios completos — moverla a ella mueve todo el bloque junto */
+  flex: 0 0 42%;
+  padding-bottom: 0;
+  transform: translate(39px, 40px);
+}
+
+.services__title{
+  position: relative;
+  margin: 0 0 36px;
+  font-size: clamp(32px, 4.4vw, 50px);
+  line-height: 1.0;
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  transform: translate(6px, 16px); /* mueve "3" + SERVICIOS + QUE MÁS REALIZAMOS como un solo bloque */
+}
+.services__number{
+  position: relative;
+  color: var(--white);
+  font-size: 2.6em;
+  line-height: .8;
+}
+
+@media (max-width: 768px) {
+.pt-tagline2{
+transform: translate(-121px, 157px);
+}
+}
+.results__photo--antes {
+translate: none;
+rotate: none;
+scale: none;
+transform: translate(0px, 0px);
+opacity: 1;
+transform: translate(-37px, 62px);
+}
+
+.results__photo--despues{    
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate(-26px, 61px);
+  opacity: 1;
+}
+
+
+
+
+.services__title em{ font-style:normal; }
+.services__title-text{ position: relative; display:flex; flex-direction:column; color: var(--white); }
+.services__title-text em{ font-style:normal; color: #b7cd02; }
+
+
+
+@media (max-width: 768px) {
+.services__title-text{
+transform: translate(56px, -1px);
+}
+}
+.services__list{ display:flex; flex-direction:column; gap: 50px; transform: translate(-55px, 22px); }
+.mobile-br{ display: none; } /* salto de línea exclusivo de mobile — en desktop queda oculto y el texto sigue en una sola línea/flujo normal */
+.materials__carousel-wrap{ position: relative; }
+.materials__swipe-arrow{
+  display: none; /* solo se muestran en mobile, ver media query */
+  /* Ahora son <button> reales: clickeables, sin estilos de botón por
+     defecto del navegador. */
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .15s ease, opacity .15s ease, text-shadow .15s ease;
+}
+.materials__swipe-arrow:active{
+  color: var(--white);
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(183,205,2,.9);
+}
+
+/* Cada servicio es un bloque 100% independiente: su icono, título y
+   párrafo tienen su propia clase (.service-N__icon / __title / __text),
+   así que cualquiera de los tres puede moverse con margin/transform/
+   position sin tocar a los demás servicios ni a sus propios hermanos.
+   Todos llevan position:relative para poder ajustarse con top/left/
+   transform sin salir del flujo normal ni romper la composición. */
+.service-1,
+.service-2,
+.service-3{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.service-2{ margin-left: 100px; }
+
+.service-1__body,
+.service-2__body,
+.service-3__body{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-1__title,
+.service-2__title,
+.service-3__title{
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin: 0;
+  transform: translate(66px, -2px);
+}
+
+.service-1__text,
+.service-2__text,
+.service-3__text{
+  position: relative;
+  font-family: var(--font-sub);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.15;
+  color: var(--grey);
+  margin: -1px 0 0;
+  max-width: 270px;
+  transform: translate(3px, 0px); /* mover la descripción de este servicio de forma independiente, sin afectar al título ni al ícono */
+}
+
+/* Iconos: cada uno es una imagen PNG real (sin SVG, sin pseudo-elementos,
+   sin máscaras) dentro de su propio contenedor .service-N__icon.
+   El círculo verde (borde + fondo) se sacó a pedido, pero el
+   contenedor conserva exactamente el mismo tamaño, posición y
+   transform que tenía — así el PNG queda en el mismo lugar de
+   siempre y sigue moviéndose con .service-N__icon sin perder nada. */
+.service-1__icon,
+.service-2__icon,
+.service-3__icon{
+  position: relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex: none;
+  width: 50px; height:50px;
+  transform: translate(0px, 0px); /* mueve el PNG (ya sin círculo), sin deformarlo */
+}
+/* La imagen PNG en sí NO lleva transform propio a propósito: círculo y
+   PNG deben permanecer unidos, así que el único punto de ajuste es
+   .service-N__icon de arriba. */
+.service-1__icon-img,
+.service-2__icon-img,
+.service-3__icon-img{
+  position: relative;
+  width: var(--services-icon-size);
+  height: var(--services-icon-size);
+  max-width: 57px;
+  object-fit: contain;
+  transform: translate(70px, -36px);
+  /* Las imágenes fuente (200x200px) se muestran reducidas: nunca se
+     escalan hacia arriba, por eso conservan nitidez total. */
+}
+
+/* Columna de la guitarra: usa Grid únicamente para apilar el brillo (glow)
+   detrás de la imagen — es una superposición de capas, el caso real en el
+   que Grid resuelve mejor que Flexbox. (Esta columna no está presente en
+   el HTML actual — ver nota aparte — pero queda preparada y correctamente
+   estructurada para cuando se reincorpore.) */
+.services__col-guitar{
+  display: none; /* solo se muestra en mobile (ver media query abajo); en desktop/tablet ya hay una guitarra de fondo */
+  flex: 0 0 58%;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: 520px;
+}
+.services__glow,
+.services__image{
+  grid-area: 1 / 1 / 2 / 2;
+}
+.services__glow{
+  justify-self: center;
+  align-self: center;
+  width: 82%;
+  height: 82%;
+  background: radial-gradient(circle, rgba(183,205,2,.4) 0%, rgba(183,205,2,.12) 45%, transparent 72%);
+  filter: blur(30px);
+  pointer-events:none;
+}
+.services__image{
+  justify-self: center;
+  align-self: end;
+  height: 100%;
+}
+.services__image img{ height:100%; width:auto; display:block; }
+.services__tag{
+  justify-self: end;
+  align-self: end;
+  margin-bottom: 46px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1;
+  color: var(--green);
+  text-align:right;
+  transform: rotate(-4deg);
+}
+
+/* ---------- VIDEO ---------- */
+/* Igual que en el Hero: Grid solo para apilar capas (texto de fondo, video, botón). */
+.video{
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: 46vh;
+  min-height: 320px;
+  background: var(--black); /* antes var(--green): mientras el video carga (o el poster), este color se ve por detrás en vez del verde */
+  overflow:hidden;
+}
+.video__layer{ grid-area: 1 / 1 / 2 / 2; }
+.video__player{
+  width:100%; height:100%;
+  object-fit: cover;
+ 
+}
+
+/* Botón de mute/unmute — pequeño y discreto, esquina inferior derecha,
+   por encima de las capas apiladas del video (z-index). */
+.video__sound-toggle{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color .25s ease, background-color .25s ease, transform .2s ease;
+}
+.video__sound-toggle:hover{
+  border-color: var(--green);
+  transform: scale(1.06);
+}
+.video__sound-icon{
+  position: relative;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: .55;
+  transition: opacity .25s ease;
+}
+/* Sonido activado: ícono a toda opacidad + borde verde */
+.video__sound-toggle[aria-pressed="true"]{
+  border-color: var(--green);
+  background: rgba(183,205,2,.18);
+}
+.video__sound-toggle[aria-pressed="true"] .video__sound-icon{ opacity: 1; }
+/* Sonido silenciado (estado por defecto): línea diagonal sobre el ícono */
+.video__sound-toggle[aria-pressed="false"]::after{
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 1.5px;
+  background: rgba(255,255,255,.85);
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+@media (max-width: 640px){
+  .video__sound-toggle{ width: 34px; height: 34px; right: 14px; bottom: 14px; }
+  .video__sound-icon{ width: 15px; height: 15px; }
+  .video__sound-toggle[aria-pressed="false"]::after{ width: 22px; }
+}
+
+.video__bg{
+  display:flex; align-items:center; justify-content:center;
+  width: 100%; height: 100%;
+  font-family: var(--font-display);
+  font-size: 15vw;
+  color: rgba(0,0,0,.12);
+  white-space:nowrap;
+  letter-spacing: 4px;
+  user-select:none;
+  transition: opacity .4s ease;
+}
+.video.is-playing .video__bg{ opacity: 0; }
+
+/* ---------- RESULTADOS ---------- */
+/* El título "RESULTADOS" convive superpuesto con el texto/flecha/galería:
+   por eso .results usa Grid para apilar esas dos capas (heading e inner),
+   igual que en Hero/Video. Dentro de cada capa, todo es Flexbox + margin,
+   sin position:absolute ni vw hacks para el sangrado del título. */
+.results{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  background: var(--black) url('../assets/images/bg-section-2.webp') center center / cover no-repeat;
+  padding: 90px 0;
+  overflow: hidden;
+}
+.results__layer{ grid-area: 1 / 1 / 2 / 2; }
+
+.results__heading{
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+}
+.results__heading-line1{
+  display: block;
+  font-size: clamp(34px, 5vw, 52px);
+  color: var(--white);
+  transform: translate(0px, 0px);
+}
+.results__heading-line2-wrap{
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 6px;
+  transform: translate(0px, 0px);
+}
+.results__heading-line2{
+  display: block;
+  font-size: clamp(34px, 5vw, 52px);
+  color: var(--green);
+  transform: translate(0px, 0px);
+}
+
+.results__inner{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: var(--container);
+  width: 100%;
+  margin: 0 auto;
+  min-height: 640px;
+}
+.results__row{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 400px;
+  max-width: 520px;
+  gap: 10px;
+  padding-left: 0; /* antes 50px: recalibrado para coincidir exactamente con el margen izquierdo de "Materiales que usamos" */
+  margin-top: 90px;    /* aproxima la posición vertical original */
+  box-sizing: border-box;
+}
+
+.results__text{
+  font-family: var(--font-sub);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--grey);
+  width: 100%;         /* antes 420px fijo: ahora se achica junto con .results__row en vez de desbordarlo */
+  max-width: 420px;
+  flex: none;
+}
+.results__text--desktop{
+  transform: translate(0px, 0px);
+}
+.results__text-line{ position: relative; display:block;    transform: translate(5px, -4px); }
+.results__text-line--2{ margin-top: 3px; }
+.results__text--mobile{ display:none; }
+.results__arrow{
+  position: relative;
+  display: block;
+  width: 5.5vw;      /* escala junto con el título (mismo criterio que el clamp+vw del texto): nunca queda ni muy chica ni desproporcionada */
+  max-width: 90px;
+  min-width: 60px;
+  height: auto;        /* nunca se deforma: se mantiene la proporción original del PNG en cualquier pantalla */
+  margin-top: 6px;
+  pointer-events: none;
+  transform: translate(154px, 58px); /* ajuste fino individual, sin afectar al texto */
+}
+.results__images{
+  position: relative;
+  display:flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 135px;
+  flex: 0 1 auto;
+}
+/* Cada foto (antes/después) tiene su propia clase — .results__photo--antes
+   y .results__photo--despues — además de la compartida .results__photo,
+   para poder moverlas por separado. */
+.results__photo{ position: relative; margin:0; flex:none; width: 335px; }
+.results__images img{
+  position: relative;
+  width:335px;
+  height:auto;
+  display:block;
+  border: 1px solid rgba(183,205,2,.35);
+  animation: resultsGlow 2.8s ease-in-out infinite;
+}
+@keyframes resultsGlow{
+  0%, 100%{
+    border-color: rgba(183,205,2,.3);
+    box-shadow: 0 0 0 rgba(183,205,2,0);
+  }
+  50%{
+    border-color: rgba(183,205,2,1);
+    box-shadow: 0 0 14px 1px rgba(183,205,2,.6);
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .results__images img{ animation: none; }
+}
+.results__photo--despues img{ animation-delay: .5s; }
+.results__images figcaption{
+  position: relative;
+  text-align:center;
+  margin-top: 16px;
+  font-family: var(--font-sub);
+  font-weight:400;
+  letter-spacing: 1px;
+  font-size: 17px;
+  color: var(--white);
+}
+
+/* ---------- PERSONALIZA TU INSTRUMENTO ----------
+   Reproducción 1:1 del diseño de Photoshop (lienzo de referencia:
+   1917 x 1225 px). Todo el posicionamiento usa % (relativos al propio
+   contenedor, que mantiene siempre esa proporción vía aspect-ratio),
+   así que la composición se ve idéntica en cualquier ancho de pantalla
+   — nada se recorta, nada se reacomoda solo.
+   El único valor que necesita escalar con el ANCHO real en píxeles
+   (no con %, que en tipografía es relativo al tamaño de fuente del
+   padre) es el font-size: para eso el contenedor es un "container query"
+   y los textos usan cqw, que se comporta igual que un % pero para
+   fuentes.
+   Cada elemento importante tiene su propia clase + transform:translate()
+   propio, listo para ajustarse a mano sin tocar el resto. */
+.pt-section{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-image: url('../assets/images/personalizacion/fondo-personalizacion.webp');
+  background-size: cover;      /* cubre TODO el ancho de la sección, de borde a borde, sin recortes por el contenedor de contenido */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* .pt-container: el contenido (título, guitarra, paneles) vive acá,
+   con el mismo ancho máximo y centrado que el resto del sitio
+   (igual que .materials__inner). El fondo NO está en este elemento —
+   por eso nunca queda "encerrado" dentro de este contenedor más
+   angosto. */
+.pt-container{
+  position: relative;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  aspect-ratio: 1917 / 1225;
+  container-type: inline-size;
+}
+
+/* Título "PERSONALIZA" / "TU INSTRUMENTO" — el contenedor SOLO define
+   posición y tipografía compartida, sin transform (para que mover una
+   línea nunca mueva a la otra). Cada línea tiene su propio transform
+   más abajo, en su propia regla. */
+.pt-title{
+  position: absolute;
+  left: 0%; /* antes 6.94%: ya no hace falta ese empuje — la sección ahora nace centrada en el mismo punto que "Materiales", así que el título arranca justo en el borde de la sección */
+  top: 8.9%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.pt-title__line1{
+  font-size: 3.61cqw; /* escala junto con la guitarra y los bloques (misma unidad relativa al contenedor de la sección) — a 1440px de ancho da 52px, igual que antes */
+  color: var(--white);
+  letter-spacing: 1px;
+  display: block;
+  transform: translate(0px, 0px);
+}
+.pt-title__line2{
+  font-size: 3.61cqw;
+  color: var(--green);
+  letter-spacing: 1px;
+  display: block;
+  transform: translate(0px, 0px);
+}
+
+/* Flecha del título — PNG temporal, propia clase */
+.pt-title__arrow{
+  position: absolute;
+  left: 0%;
+  top: 13.5%;
+  width: 9.9%;
+  height: auto;
+  transform: translate(0px, 0px);
+}
+
+/* "Diseñado por vos. Construido por nosotros." — imagen PNG temporal */
+.pt-tagline{
+  position: absolute;
+  left: 0%; /* antes 6.94%: mismo motivo que el título — ya no hace falta el empuje extra */
+  top: 23.7%;
+  width: 23.5%;
+  height: auto;
+  transform: translate(0px, 0px);
+}
+
+/* Guitarra — tamaño y posición exactos del diseño, sin deformar */
+.pt-guitar{
+  position: absolute;
+  left: 39.1%;
+  top: -3.8%;
+  width: 26.4%;
+  height: auto;
+  transform: translate(-33px, 0px);
+}
+
+/* Los 4 bloques de texto — mismo ancho y misma altura entre sí (pedido
+   explícito de alineación); cada uno mantiene su punto de anclaje
+   original (el borde que apunta hacia la guitarra no se mueve). */
+.pt-block{
+  position: absolute;
+  width: 20.9%;
+  height: 15.46%;
+  font-family: var(--font-sub);
+  text-align: left;
+  /* Sin transform acá a propósito: este contenedor solo define la
+     posición y el tamaño del panel. El movimiento individual del
+     título y de la descripción se maneja exclusivamente en sus
+     propias clases (.pt-title-* / .pt-desc-*) más abajo, para que
+     mover uno nunca mueva al otro. */
+}
+/* Estilo compartido: mismo tamaño de letra, mismo color y MISMA
+   separación entre título y descripción en los 4 bloques (así quedan
+   perfectamente alineados entre sí). Esto NO controla la posición
+   individual — eso lo hace cada clase de más abajo, cada una en su
+   propia regla, sin agrupar. */
+.pt-block__title{
+  font-family: var(--font-sub);
+  font-weight: 900;
+  font-size: 1.55cqw;
+  color: #b7cd02;
+  letter-spacing: .5px;
+  margin: 0 0 .5em;
+  display: block;
+}
+.pt-block__desc{
+  font-size: 1.1cqw;
+  line-height: 1.35;
+  color: var(--grey);
+  margin: 0;
+  display: block;
+}
+
+/* Transform individual — CADA título y CADA descripción tiene su
+   PROPIA clase en su PROPIA regla separada. Mover una nunca mueve
+   a ninguna otra.
+   También tienen acá su propio font-size (mismo valor por defecto
+   que el estilo compartido de arriba, para que hoy se vea igual),
+   así que cambiar el font-size de una clase de estas SOLO afecta a
+   ese título o esa descripción puntual, sin tocar a los otros tres
+   bloques. */
+.color-title{
+  font-size: 1.3cqw;
+  transform: translate(56px, 10px);
+}
+.color-text{
+  font-size: 1.3cqw;
+  transform: translate(56px, 5px);
+}
+.estetica-title{
+  font-size: 1.3cqw;
+  transform: translate(2px, 23px);
+}
+.estetica-text{
+  font-size: 1.3cqw;
+  transform: translate(1px, 15px);
+}
+.sonora-title{
+  font-size: 1.3cqw;
+  transform: translate(26px, 16px);
+}
+.sonora-text{
+  font-size: 1.3cqw;
+  transform: translate(27px, 11px);
+}
+.ergonomia-title{
+  font-size: 1.3cqw;
+  transform: translate(16px, 28px);
+}
+.ergonomia-text{
+  font-size: 1.3cqw;
+  transform: translate(16px, 20px);
+}
+
+/* Los bloques de la izquierda (texto alineado a la derecha) conservan
+   su borde DERECHO original —el que apunta a la guitarra—; los de la
+   derecha (alineados a la izquierda) conservan su borde IZQUIERDO.
+   Solo cambié el ancho/alto para igualarlos; ningún punto de anclaje
+   hacia la guitarra se movió. */
+.pt-block--color{  left: 18.7%; top: 46.5%; }
+.pt-block--diseno{ left: 61.0%; top: 44.5%; }
+.pt-block--config{ left: 15.4%; top: 69.8%; }
+.pt-block--ergo{   left: 64.4%; top: 68.5%; }
+
+/* Las 4 flechas — imágenes PNG en /assets, cada una en su propia
+   regla individual con su propio transform. */
+.pt-arrow{ position: absolute; height: auto; }
+.pt-arrow--color{
+  left: 37.6%; top: 48.5%; width: 7.5%;
+  transform: translate(6px, 5px);
+}
+.pt-arrow--diseno{
+  left: 56.6%; top: 44.5%; width: 7.5%;
+  transform: translate(-48px, 24px);
+}
+.pt-arrow--config{
+  left: 35.0%; top: 67.5%; width: 7.5%;
+  transform: translate(32px, -11px);
+}
+.pt-arrow--ergo{
+  left: 56.6%; top: 66.5%; width: 8.9%;
+  transform: translate(-5px, -8px);
+}
+
+/* ---------- MATERIALES ---------- */
+.materials{
+  position:relative;
+  background:  url('../assets/images/bg-materials.webp') center center / cover no-repeat;
+  padding: 85px 32px;
+  overflow: hidden;
+}
+.materials__inner{
+  max-width: var(--container);
+  margin: 0 auto;
+  display:flex;
+  flex-direction:column;
+}
+.materials__header{ position: relative; margin-bottom: 34px; }
+.materials__title{
+  position: relative;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1;
+  color: var(--white);
+}
+.materials__title em{
+  font-style:normal;
+  color: #b7cd02;
+  display:inline-block;
+  margin-left: 90px;
+      transform: translate(-23px, 5px);
+}
+.materials__desc{
+  position: relative;
+  max-width: 520px;
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: var(--grey);
+  text-align: left;
+  transform: translate(5px, 0px);
+}
+
+
+.courses__desc {
+translate: none;
+rotate: none;
+scale: 104%;
+transform: translate(5px, -6px);
+opacity: 1;
+}
+
+
+
+
+
+.materials__desc--mobile{ display:none; }
+.materials__grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  margin-top: 24px;
+  transform: translate(-6px, -52px);
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+/* Cada madera es su propio <li> con clase individual
+   (.materials__item--fresno, --ebano, --arce, --caoba) además de la
+   compartida .materials__item, para poder moverla sin afectar a las
+   otras tres. */
+.materials__item{ position: relative; flex: none; }
+.materials__swatch{
+  position:relative;
+  width: 260px;
+  height: 392px;
+  overflow:hidden;
+  /* respaldo sólido: cualquier transparencia del archivo de imagen queda tapada, nunca se ve blanco */
+}
+.materials__swatch img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition: transform .5s ease;
+}
+.materials__swatch:hover img{ transform: scale(1.05); }
+.materials__label{
+  position:absolute;
+  right: 138px; bottom: 45px;
+  background: var(--green);
+  color: #101000;
+  padding: 7px 34px;
+  text-align: center;
+  font-family: var(--font-sub);
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  transform: translate(126px, 11px);
+}
+
+
+/* ---------- CURSOS (nueva sección) ---------- */
+.courses{
+  position: relative;
+  background: var(--black) url('../assets/images/bg-section-6.png') center center / cover no-repeat;
+  padding: 109px 30px;
+  text-align:center;
+}
+.courses__title{
+  position: relative;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.05;
+}
+.courses__title em{ font-style: normal; }
+.courses__desc{
+  position: relative;
+  max-width: 520px;
+  margin: 19px auto 0px;
+  font-family: var(--font-sub);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--grey);
+}
+.courses__grid{
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  text-align:left;
+}
+/* Cada tarjeta tiene su propia clase (.course-card--1/2/3), además de
+   la compartida .course-card, para poder moverla o ajustarla sin
+   afectar a las otras dos. Lo mismo para su botón y su precio. */
+.course-card{
+  position: relative;
+  flex: 1 1 0;
+  background: #131313;
+  border: 1px solid rgba(255,255,255,.06);
+  padding: 22px;
+  transition: transform .4s ease, border-color .4s ease;
+}
+.course-card:hover{
+  transform: translateY(-8px);
+  border-color: rgba(183,205,2,.5);
+}
+.course-card__img{ position: relative; overflow:hidden; margin-bottom: 20px; background-color: #0a0a0a; }
+.course-card__img img{
+  position: relative;
+  width:100%; height: 200px; object-fit:cover;
+  transition: transform .5s ease;
+}
+.course-card:hover .course-card__img img{ transform: scale(1.06); }
+.course-card h3{
+  position: relative;
+  font-family: var(--font-sub);
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: .5px;
+  margin-bottom: 3px;
+}
+.course-card p{
+  position: relative;
+  font-size: 13px;
+  color: var(--grey);
+  margin-bottom: - 5px;
+  min-height: 46px;
+}
+/* Bloque de info (Nivel / Duración) — réplica fiel de la referencia:
+   fondo gris #2d2d2d, texto blanco, ícono chico, en fila con wrap para
+   que nunca se corten ni se superpongan en pantallas angostas. */
+.course-card__meta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+/* Contenedor dedicado exclusivamente a la posición vertical del bloque
+   completo (los dos rectángulos grises). Al usar transform, mover este
+   bloque nunca empuja ni desplaza la descripción, el precio, el botón
+   ni el tamaño de la tarjeta — el espacio original en el flujo del
+   documento queda intacto, solo se desplaza visualmente el contenido. */
+.course-meta-wrapper{
+  transform: translateY(0px);
+}
+.course-card__tag{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #2d2d2d;
+  border-radius: 4px;
+  padding: 7px 10px;
+  font-family: var(--font-sub);
+  font-size: 11px;
+  color: var(--white);
+  white-space: nowrap;
+}
+.course-card__tag-icon{
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  flex: none;
+}
+.course-card__price{
+  position: relative;
+  display:block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+.course-card__btn{ position: relative; width:100%; text-align:center; transition: transform .2s ease, opacity .2s ease; }
+.course-card__btn.is-navigating{ transform: scale(0.94); opacity: .6; }
+
+/* ---------- CONTACTO ---------- */
+.contact{
+  position: relative;
+  background: var(--black) url('../assets/images/bg-contact.webp') center center / cover no-repeat;
+  padding: 120px 32px;
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+}
+.contact__text,
+.contact__form{
+  position: relative;
+  flex: 1 1 0;
+}
+.contact__text{
+  transform: translate(-32px, 0px); /* recalibrado para coincidir exactamente con el margen izquierdo de "Materiales que usamos" (el padding lateral de .contact desplazaba el texto 32px de más) */
+}
+.contact__title{
+  position: relative;
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.05;
+}
+.contact__title em{ font-style:normal; color: var(--green); }
+.contact__lead{
+  position: relative;
+  margin-top: 2px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--grey);
+  max-width: 340px;
+}
+.contact__form{ display:flex; flex-direction:column; gap: 18px; }
+/* Cada campo del formulario tiene su propia clase
+   (.contact__field--nombre, --email, --instrumento, --mensaje),
+   además de la compartida .contact__field, para poder ajustar uno
+   sin afectar a los demás. */
+.contact__field{
+  position: relative;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,.25);
+  padding: 12px 4px;
+  color: var(--white);
+  font-family: var(--font-sub);
+  font-size: 12px;
+  letter-spacing: 1px;
+  resize: vertical;
+  transition: border-color .3s ease;
+}
+.contact__field::placeholder{ color: var(--grey); }
+.contact__field:focus{
+  outline:none;
+  border-color: var(--green);
+}
+.contact__submit{ position: relative; align-self:flex-start; margin-top: 8px; }
+
+/* ---------- FOOTER ---------- */
+.footer{
+  background: var(--black) url('../assets/images/bg-footer.png') center center / cover no-repeat;
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 26px 32px 200px; /* el padding inferior extra le da a la página suficiente alto para que "Contacto", al ser la última sección, pueda desplazarse hasta quedar perfectamente debajo del navbar (si no, el final de la página no alcanza para compensar la altura del menú fijo) */
+  text-align:center;
+}
+.footer p{
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+/* ---------- Animation base states (GSAP will animate to visible) ---------- */
+.gsap-fade{ opacity:0; }
+.gsap-fade-up{ opacity:0; transform: translateY(50px); }
+.gsap-fade-left{ opacity:0; transform: translateX(-60px); }
+.gsap-fade-right{ opacity:0; transform: translateX(60px); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .gsap-fade, .gsap-fade-up, .gsap-fade-left, .gsap-fade-right{
+    opacity:1 !important; transform:none !important;
+  }
+}
+
+/* Visible keyboard focus */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+/* =========================================================RESPONSIVE — TABLET
+   ========================================================= */
+/* =========================================================
+   CORRECCIÓN PUNTUAL DE ESTABILIDAD — ancho intermedio
+   (1025px–1210px aprox.)
+   El diseño principal (desktop ≥1211px y el breakpoint de tablet en
+   ≤1024px) no se toca. Esta franja angosta quedaba SIN cubrir por
+   ninguno de los dos y producía scroll horizontal: la corona de
+   "Quiénes Somos" quedaba fuera de la pantalla, y la 4ª madera de
+   "Materiales" (CAOBA) quedaba tapada/cortada. Se corrige solo acá,
+   sin modificar los valores de la composición principal.
+   ========================================================= */
+@media (min-width: 1025px) and (max-width: 1210px){
+  .about__crown{ margin-left: 302px; }
+  .materials__swatch{ width: 215px; }
+  .materials__grid{ gap: 20px; }
+}
+/* Sub-franja aún más angosta (1025–1084px): a esos anchos el bloque de
+   texto de "Quiénes Somos" queda muy comprimido por la galería de fotos
+   y "QUIENES" ya no entra en el espacio disponible aun al tamaño mínimo
+   normal. Se limita el tamaño de fuente solo en este rango puntual para
+   que no se salga de la pantalla; en cualquier otro ancho el título
+   sigue usando exactamente el mismo clamp() de siempre. */
+@media (min-width: 1025px) and (max-width: 1084px){
+  .about__heading{ font-size: 38px; }
+  .about__crown{ margin-left: 280px; }
+}
+
+/* =========================================================
+   RESPONSIVE — Resultados: apilar en columna por debajo de 900px
+   (a pedido explícito, además del ajuste de flex-wrap de arriba,
+   que ya evita superposición en la mayoría de los anchos).
+   ========================================================= */
+@media (max-width: 900px){
+  .results__inner{
+    flex-direction: column;
+  }
+  .results__images{
+    margin-top: 40px;
+  }
+  .results__arrow{
+    position: static; /* a pedido explícito: en pantallas chicas pasa a estática, ya no necesita flotar junto al título */
+    margin-left: 0;
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 1024px){
+  .navbar__nav{ display:none; }
+  .navbar__burger{ display:flex; }
+
+  .about{ background-size: auto 1658px; } /* ver nota en la sección mobile: a este ancho el contenido apilado (galería + texto) es más alto que la textura nativa */
+  .about__inner{ grid-template-columns: 1fr; justify-items: center; gap: 40px; transform: translate(0px, -56px); }
+  .about__heading{ margin-left: 0; }
+  .about__crown{ margin-left: 302px; }
+  .about__gallery{ height: 380px; }
+  .about__content{ align-items: center; text-align: center; max-width: 100%; }
+  .about__text{ margin: 0 auto; text-align: center; }
+  .about__signature{ justify-content: center; }
+
+  .services__grid{ flex-direction: column; }
+  .services__col-text{ flex-basis: auto; padding-bottom: 0; order: 2; }
+  .services__col-guitar{ flex-basis: auto; order: 1; height: 440px; margin-bottom: 30px; }
+  .services__image{ height: 78%; }
+
+  .materials__inner{ aspect-ratio: auto; padding-bottom: 30px; }
+  .materials__grid{ height: auto; gap: 14px; }
+  .materials__swatch{ width: 172px; height: 260px; }
+
+  .courses__grid{ flex-direction: column; max-width: 480px; }
+
+  .contact{ flex-direction: column; }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+@media (max-width: 640px){
+  :root{ --nav-h: 64px; }
+  .hero__content{ padding: 0 25px; }
+  .navbar__inner{ padding: 0 20px; }
+  .footer{ padding: 26px 20px; }
+  .hero__historia{
+    width: 78vw;
+    max-width: 328px;
+    margin: -23px 6px 8px; /* antes: margin -51px -26px 0 heredado de desktop, sacaba el sello de pantalla y lo superponía al título */
+    translate: none;
+    rotate: none;
+    scale: 108%;
+    transform: translate(-24.82px, -2.89px) scale(0.89, 0.89);
+    opacity: 1;
+  }
+  .navbar__logo img{ height: 37px; }
+
+
+  /* --- Personaliza tu instrumento: layout propio para mobile ---
+     En desktop es una réplica exacta de Photoshop con posicionamiento
+     absoluto (aspect-ratio fijo) — a un ancho de 375px eso comprime
+     todo el contenido en una tira de apenas 240px, ilegible. Acá se
+     arma un stack simple y legible: título, imagen "Diseñado por vos",
+     guitarra centrada y los 4 bloques uno debajo del otro — mismo
+     orden y contenido que el diseño de escritorio y que la referencia
+     de Photoshop para mobile. */
+  .pt-section{
+    aspect-ratio: auto;
+    background-position: center top;
+    /* Fondo independiente para Mobile: colocá el archivo nuevo en
+       assets/images/personalizacion/ y escribí acá su nombre exacto.
+       No toca el fondo de Desktop (esa regla queda intacta más arriba). */
+    background-image: url('../assets/images/personalizacion/fondo-personalizacion-mobile.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .pt-container{
+    aspect-ratio: auto;
+    container-type: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0px 20px 11px;
+    gap: 24px;
+  }
+  .pt-title{
+    position: relative;
+    left: 0px; top: -68px;
+    align-items: self-start;
+    order: 1;
+    transform: translate(0px, 0px);
+  }
+  .pt-title__line1, .pt-title__line2{ font-size: 30px; }
+  .pt-title__arrow{ display:none; }
+  .pt-tagline{
+    position: relative;
+    left: 0; top: 0;
+    width: 200px;
+    margin: 0;
+    order: 2;
+    transform: translate(-19px, -24px);
+  }
+  .pt-guitar{
+    position: relative;
+    left: 0; top: 0;
+    width: 60%;
+    max-width: 233px;
+    margin: 10px 0 -470px;
+    order: 4;
+    transform: translate(185px, -470px);
+  }
+  .pt-arrow{ display:none; }
+  .pt-block{
+    position: relative;
+    left: 0; top: 0;
+    width: 100%;
+    max-width: 320px;
+    margin: 0;
+    text-align: left;
+    order: 3;
+    transform: translate(0px, 0px);
+  }
+  .pt-block__title{ font-size: 15px; }
+  .pt-block__desc{ font-size: 13px; }
+
+  /* --- Reseteo de ajustes finos individuales ---
+     Muchos elementos tienen su propio transform:translate() calibrado
+     a mano para desktop (el sistema de micro-ajustes que se armó para
+     esta web). En mobile el layout cambia por completo (todo se apila
+     en columna), así que esos valores en píxeles fijos ya no
+     corresponden y generaban desbordes horizontales y textos cortados.
+     Se resetean a 0 SOLO acá, sin tocar los valores originales. */
+  .services__title,
+  .about__heading,
+  .about__text,
+  .about__signature,
+  .services__col-text,
+  .results__photo--despues,
+  .services__list,
+  .service-3__title,
+  .service-3__text,
+  .results__text-line,
+  .results__arrow,
+  .color-title,
+  .color-text,
+  .estetica-title,
+  .estetica-text,
+  .sonora-title,
+  .sonora-text,
+  .ergonomia-title,
+  .ergonomia-text,
+  .pt-arrow--color,
+  .pt-arrow--diseno,
+  .pt-arrow--config,
+  .pt-arrow--ergo,
+  .materials__desc,
+  .materials__label,
+  .contact__text{
+    transform: translate(0px, 0px);
+  }
+
+  /* Texto del hero: se usa la variante --mobile con salto de línea propio */
+
+
+
+
+
+
+
+
+
+@media (max-width: 640px){
+
+  .hero__text--desktop{
+      display: none;
+  }
+
+  .hero__text--mobile{
+      display: block;
+  }
+
+  .hero__text{
+      font-size: 16px;
+      transform: translate(0px, -15px);
+      width: 79vw;
+      max-width: 328px;
+      margin: -18px -3px 7px;
+  }
+
+
+
+
+
+}
+  /* Botón "VER CURSOS" más chico en mobile */
+  .hero__cta{
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    padding: 10px 20px;
+    translate: none;
+    rotate: none;
+    scale: none;
+    opacity: 1;
+  }
+  /* Clase dedicada exclusivamente para subir/bajar el botón VER CURSOS
+     (conserva la posición actual: -4px, -47px) */
+  .ver-cursos-btn{
+    transform: translate(-4px, -47px);
+    max-width: 326px;
+    margin: 39px 0px 4px;
+  }
+
+  /* Menú hamburguesa: ícono y tipografía más chicos */
+  .navbar__burger{ width: 22px; height: 15px; }
+  .mobile-menu a{ font-size: 18px; }
+
+  /* Nota sobre el fondo: en mobile/tablet la galería y el texto se
+     apilan verticalmente, así que el bloque de contenido (825px+) es
+     más alto que la zona de textura "crema" utilizable de la imagen
+     nativa (760px de 959px). Mostrar la imagen a tamaño 100% real
+     dejaría la firma directamente sobre el negro. Por eso acá se
+     escala proporcionalmente (mismo aspecto exacto, sin deformar) lo
+     mínimo necesario para que la crema cubra el contenido — en
+     desktop, donde si entra a tamaño real, se usa 1915x959 sin ningún
+     escalado (ver regla base .about). */
+  .about{ padding: 45px 20px 0px; background-size: auto 1594px; }
+  .about__inner{ gap: 32px; }
+  .about__gallery{
+    flex-direction: column;
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+    height: auto;
+    gap: 14px;
+  }
+
+
+
+
+
+
+
+
+
+
+  .about__photo{ width: 100%; height: 210px; aspect-ratio: auto; }
+  .about__content{
+    justify-items: center;
+    text-align: center;
+    max-width: 280px;
+    margin: 0 auto;
+    gap: 26px;
+  }
+  .about__heading{ justify-self: start; margin-left: 0; font-size: 40px; }
+  .about__foto{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    transform: none;
+    scale: 30%;
+  }
+  .about__crown{ justify-self: start; margin-left: 224px; transform: none; }
+  .about__bar{ height: 0.6em; }
+  .about__crown svg{ width: 34px; }
+  .about__title-somos{ padding: 2px 10px 4px;
+    font-size: 104%;
+    @media (max-width: 640px) {
+      .about__title-somos {
+          padding: 2px 7px -9px;
+          font-size: 108%;
+          transform: translate(-5px, -3px);
+      }
+  } }
+  .about__text{ text-align: center; max-width: 260px; margin: 0 auto; }
+  .about__signature{ justify-content: center; margin: 0 auto; transform: translate(14px, 0px); }
+
+  @media (max-width: 768px) {
+    .about__foto {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        scale: 43%;
+        transform: translate(65px, -992px);
+    }
+}
+
+
+@media (max-width: 640px) {
+  @media (max-width: 640px) {
+      .about__heading {
+          justify-self: start;
+          margin-left: -19px;
+          font-size: 40px;
+          transform: translate(-1px, -1px);
+      }
+  }
+
+  /* Resto de elementos */
+  .services__title,
+  .about__text,
+  .about__signature,
+  .services__col-text,
+  .services__list,
+  .service-3__title,
+  .service-3__text,
+  .results__photo--despues,
+  .results__text-line,
+  .results__arrow,
+  .color-title,
+  .color-text,
+  .estetica-title,
+  .estetica-text,
+  .sonora-title,
+  .sonora-text,
+  .ergonomia-title,
+  .ergonomia-text,
+  .pt-arrow--color,
+  .pt-arrow--diseno,
+  .pt-arrow--config,
+  .pt-arrow--ergo,
+  .materials__desc,
+  .materials__label,
+  .contact__text{
+      transform: translate(0px, -1px);
+  }
+
+}
+@media screen and (max-width: 768px){
+
+  .about__text{
+      font-size: 15px;      /* Tamaño de la letra */
+      line-height: 1.5;     /* Espacio entre líneas */
+      text-align: left;
+      word-spacing: normal;
+      letter-spacing: normal;
+  }
+
+}
+@media (max-width: 640px) {
+  .about__content {
+      justify-items: center;
+      text-align: center;
+      max-width: 291px;
+      margin: 0 auto;
+      gap: 14px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .services{ padding: 26px 20px 44px; transform: translateY(0px); }
+  .services__grid{ display: flex; flex-direction: column; gap: 30px; }
+  .services__col-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    order: 1;
+    gap: 0px;
+  }
+  .services__title{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    gap: 4px;
+    margin: -44px 0 -15 -66px;
+    max-width: 100%;
+  }
+  .services__title-text{ max-width: 100%; margin-left: 0; transform: translate(-23px, 2px); }
+  .services__number{ font-size: 1.9em; transform: translate(-149px, 70px); font-size: 59pt ;}
+  .services__list{
+    gap: 0;
+    margin-top: 0;
+  }
+  .service-1,
+  .service-2,
+  .service-3{
+    margin-left: 0px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0px;
+  }
+  .service-1__title,
+  .service-2__title,
+  .service-3__title{
+    font-size: 25px;
+    transform: translate(-43px, -7px);
+  }
+  .service-1__icon-img,
+  .service-2__icon-img,
+  .service-3__icon-img{
+    transform: translate(-171px, 35px);
+    scale: 89%;
+  }
+  .service-1__text,
+  .service-2__text,
+  .service-3__text{
+    margin-left: 0;
+    max-width: 300px;
+    text-align: left;
+    transform: translate(-46px, -1px);
+    font-size: 15px;
+  }
+  .mobile-br{ display: inline; }
+  /* Construcción (service-2) — control individual, separado del resto,
+     para poder moverla sin afectar a Personalización ni Restauración. */
+  .service-2__icon-img{ transform: translate(-171px, 35px); }
+  .service-2__title{ transform: translate(-56px, -7px); }
+  .service-2__text{ transform: translate(-60px, -3px); }
+  .services__col-guitar{
+    display: grid;
+    order: 2;
+    height: 270px;
+    margin-bottom: 0;
+    margin-top: 30px;
+  }
+  .services__image{ height: 372px; margin-bottom: -57px; transform: translate(0px, 0px); opacity: 1; }
+
+  .video{ height: 30vh; min-height: 220px; margin-top: 28px; }
+  .video__bg{ font-size: 22vw; }
+
+  .results{ display: block; padding: 47px 20px; }
+  .results__inner{
+    display: block;
+    min-height: auto;
+  }
+  .results__row{ padding-left: 0; margin-top: 0; }
+  .results__arrow{
+    display: inline-block;
+    width: 34px;
+    height: auto;
+    margin-top: 2px;
+  }
+
+  /* Texto: se usa la variante --mobile con salto de línea propio */
+  .results__text--desktop{ display:none; }
+  .results__text--mobile{ display:block; }
+  .results__text{
+    width: 240px;
+    max-width: 240px;
+    margin: 0 0 0 75px;
+    font-size: 14px;
+    transform: translate(-73px, 8px);
+  }
+
+
+
+  @media (max-width: 640px) {
+    .results__images {
+        justify-self: stretch;
+        margin-top: 6px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translate(0px, 0px);
+    }
+  }
+
+
+  .results__text-line{ display: block; }
+  .results__text-line--2{ margin-top: 0; }
+  .results__text-line--3{ display: block; margin-top: 0; }
+  .trabajos-title{ transform: translate(0px, 0px); }
+  .realizados-title{ transform: translate(0px, 0px); }
+  .before-photo{ transform: translate(0px, 0px); }
+  .after-photo{ transform: translate(0px, 0px); }
+  .results__images{
+    justify-self: stretch;
+    margin-top: 38px;
+    flex-direction:column; align-items:center; width:100%;
+  }
+  .results__photo{ max-width: 220px; width: 45%; }
+  .results__images img{ width:100%; height: 190px; object-fit:cover; }
+  .results__images figcaption{ font-size: 13px; }
+
+  /* --- Materiales: 2 columnas, protagonismo de la textura --- */
+  .materials{ padding: 56px 0 56px; }
+  .materials__inner{ aspect-ratio: auto; }
+  .materials__header{ padding: 0 20px; text-align: left; }
+  .materials__title em{ margin-left: 42px; }
+
+  /* Texto: se usa la variante --mobile con salto e interlínea propios */
+  .materials__desc--desktop{ display:none; }
+  .materials__desc--mobile{ display:block; }
+  .materials__desc{
+    max-width: 280px;
+    margin: 8px 0 0;
+    line-height: 1.2;
+    text-align: left;
+  }
+  .materials__desc--mobile .materials__desc-line{ display: block; }
+  .materials__desc--mobile .materials__desc-line--c{ margin-top: 2px; }
+  .materials__grid{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    height: auto;
+    gap: 16px;
+    padding: 4px 16px 8px;
+    margin-top: 10px;
+  }
+  .materials__grid::-webkit-scrollbar{ display: none; }
+  .materials__swipe-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    background: none;
+    border-radius: 0;
+    color: var(--green);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+    z-index: 2;
+    opacity: 1;
+    text-shadow: 0 2px 6px rgba(0,0,0,.5);
+  }
+  .materials__swipe-arrow--left{ left: 7px;transform: translate(10px, -65px); }
+  .materials__swipe-arrow--right{ right: 13px;transform: translate(-8px, -70px); }
+  .materials__item{
+    flex: 0 0 calc(50% - 10px);
+    scroll-snap-align: none;
+  }
+  .materials__item:nth-child(odd){ scroll-snap-align: start; }
+  .materials__swatch{
+    width: 100%;
+    height: 282px;
+  }
+  .materials__label{ right: -1px; left: 71px; bottom: 10px; font-size: 11px; padding: 5px 16px; letter-spacing: 0.8px; transform: translate(10px, -20px);}
+
+  .courses{ padding: 18px 20px; }
+
+  /* --- Contacto: inputs a todo el ancho, táctil --- */
+  .contact{ padding: 70px 20px; gap: 36px; }
+  .contact__field{
+    width: 100%;
+    font-size: 16px; /* evita el zoom automático de iOS al enfocar */
+    padding: 14px 4px;
+  }
+  /* El placeholder se ve más chico, pero el input mantiene 16px al tipear
+     (bajarlo dispararía el zoom automático de Safari/iOS al enfocar) */
+  .contact__field::placeholder{
+    font-size: 13px;
+  }
+  .contact__submit{
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* =========================================================
+     FONDOS — control individual por sección (excepto Home)
+     Se usan las propiedades "largas" (no el shorthand "background")
+     para que cada una se pueda tocar por separado sin tener que
+     reescribir toda la línea. Los valores de acá pisan solo esa
+     propiedad puntual del shorthand de la regla de escritorio.
+     ========================================================= */
+  .about{
+    background-position-x: center;
+    background-position-y: center;
+  }
+  .services{
+    background-position-x: right;
+    background-position-y: revert;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .results{
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .pt-section{
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .materials{
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .courses{
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .contact{
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .footer{
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE ANGOSTO (390px / 360px, iPhone 15/16 Pro)
+   ========================================================= */
+@media (max-width: 420px){
+  .materials__swatch{ height: 282px; }
+  .materials__grid{ gap: 12px; }
+}
