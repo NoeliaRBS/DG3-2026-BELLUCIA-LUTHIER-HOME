@@ -37,7 +37,7 @@ Stylesheet
 /* ---------- Reset ---------- */
 *, *::before, *::after{ box-sizing: border-box; }
 html, body{ margin:0; padding:0; }
-html{ scroll-behavior: auto; scroll-padding-top: var(--nav-h); }
+html{ scroll-behavior: auto; scroll-padding-top: var(--nav-h); overflow-x: hidden; }
 body{
   background: var(--black);
   color: var(--white);
@@ -496,6 +496,16 @@ p{ margin:-4px;
   scale: 67%;
 }
 
+/* En monitores ultra anchos (2560px+), el fondo de tamaño nativo fijo
+   (1915px) queda más angosto que la pantalla y deja ver el color de
+   respaldo en los costados. Solo en ese rango se cambia a "cover" para
+   garantizar cobertura total; en todo el resto del escritorio (hasta
+   1920px, que cubre la enorme mayoría de monitores) se conserva el
+   tamaño nativo exacto, sin recortar ni deformar nada. */
+@media (min-width: 1920px){
+  .about{ background-size: cover; }
+}
+
 
 
 
@@ -661,6 +671,7 @@ p{ margin:-4px;
   color: #333;
   transform: translate(0px, 16px); /* mover el texto descriptivo de forma independiente */
 }
+.about__text--mobile{ display: none; } /* oculto en desktop por defecto; se activa solo dentro de la media query mobile */
 
 .hero__historia{
   translate: none;
@@ -693,7 +704,7 @@ p{ margin:-4px;
 
   .about__signature img{
       width: 200px;                  /* Ajustá el tamaño que quieras */
-      transform: translate(0px, -17px);
+      transform: translate(91px, -6px);
       scale: 119%;
   }
 
@@ -762,7 +773,7 @@ opacity: 1;
 
 @media (max-width: 768px) {
 .pt-tagline2{
-transform: translate(-121px, 157px);
+transform: translate(-124px, 200px);
 }
 }
 .results__photo--antes {
@@ -1797,7 +1808,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   }
   .pt-title{
     position: relative;
-    left: 0px; top: -68px;
+    left: 0px; top: -38px;
     align-items: self-start;
     order: 1;
     transform: translate(0px, 0px);
@@ -1832,8 +1843,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     order: 3;
     transform: translate(0px, 0px);
   }
-  .pt-block__title{ font-size: 15px; }
-  .pt-block__desc{ font-size: 13px; }
+  .pt-block__title{ font-size: 15px; margin: 0 0 3px; }
+  .pt-block__desc{ font-size: 13px; margin-top: 0; }
 
   /* --- Reseteo de ajustes finos individuales ---
      Muchos elementos tienen su propio transform:translate() calibrado
@@ -1849,8 +1860,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .services__col-text,
   .results__photo--despues,
   .services__list,
-  .service-3__title,
-  .service-3__text,
   .results__text-line,
   .results__arrow,
   .color-title,
@@ -1866,8 +1875,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .pt-arrow--config,
   .pt-arrow--ergo,
   .materials__desc,
-  .materials__label,
-  .contact__text{
+  .materials__label{
     transform: translate(0px, 0px);
   }
 
@@ -1919,9 +1927,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   /* Clase dedicada exclusivamente para subir/bajar el botón VER CURSOS
      (conserva la posición actual: -4px, -47px) */
   .ver-cursos-btn{
-    transform: translate(-4px, -47px);
     max-width: 326px;
-    margin: 39px 0px 4px;
+    margin: -21px 0px 4px;
   }
 
   /* Menú hamburguesa: ícono y tipografía más chicos */
@@ -1937,7 +1944,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
      mínimo necesario para que la crema cubra el contenido — en
      desktop, donde si entra a tamaño real, se usa 1915x959 sin ningún
      escalado (ver regla base .about). */
-  .about{ padding: 45px 20px 0px; background-size: auto 1594px; }
+  .about{ padding: 45px 20px 0px; background-size: auto 1594px; overflow-x: hidden; }
   .about__inner{ gap: 32px; }
   .about__gallery{
     flex-direction: column;
@@ -1970,8 +1977,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     position: relative;
     display: block;
     margin: 0 auto;
-    transform: none;
-    scale: 30%;
+    transform: translate(68px, -1109px);
+    scale: 37%;
   }
   .about__crown{ justify-self: start; margin-left: 224px; transform: none; }
   .about__bar{ height: 0.6em; }
@@ -1986,17 +1993,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       }
   } }
   .about__text{ text-align: center; max-width: 260px; margin: 0 auto; }
+  .about__text--desktop{ display: none; }
+  .about__text--mobile{ display: flex; }
   .about__signature{ justify-content: center; margin: 0 auto; transform: translate(14px, 0px); }
-
-  @media (max-width: 768px) {
-    .about__foto {
-        position: relative;
-        display: block;
-        margin: 0 auto;
-        scale: 43%;
-        transform: translate(65px, -992px);
-    }
-}
 
 
 @media (max-width: 640px) {
@@ -2015,8 +2014,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .about__signature,
   .services__col-text,
   .services__list,
-  .service-3__title,
-  .service-3__text,
   .results__photo--despues,
   .results__text-line,
   .results__arrow,
@@ -2033,9 +2030,25 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .pt-arrow--config,
   .pt-arrow--ergo,
   .materials__desc,
-  .materials__label,
+  .materials__label{
+      transform: translate(0px, 19px);
+  }
+  /* "Hablemos de tu próximo instrumento" — única regla, clara y
+     dedicada. El -32px de escritorio (para alinear con "Materiales")
+     no aplica en este layout mobile de una sola columna, así que acá
+     arranca en 0 y se puede ajustar libremente desde este único lugar. */
   .contact__text{
-      transform: translate(0px, -1px);
+      transform: translate(0px, 0px);
+  }
+  .contact__title{
+      margin: 0px;
+      font-family: var(--font-display);
+      font-weight: 400;
+      transform: translate(38px, 2px);
+  }
+  .contact__lead{
+      margin: -4px;
+      transform: translate(42px, 4px);
   }
 
 }
@@ -2088,51 +2101,64 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     align-items: center;
     font-size: 30px;
     gap: 4px;
-    margin: -44px 0 -15 -66px;
+    margin: -44px 5px -14px -94px;
     max-width: 100%;
   }
-  .services__title-text{ max-width: 100%; margin-left: 0; transform: translate(-23px, 2px); }
-  .services__number{ font-size: 1.9em; transform: translate(-149px, 70px); font-size: 59pt ;}
+  .services__title-text{ max-width: 100%; margin-left: 0; transform: translate(15px, -29px); font-size: 23pt; }
+  .services__number{ transform: translate(-112px, 39px); font-size: 59pt ;}
   .services__list{
     gap: 0;
-    margin-top: 0;
+    margin-top: -40px;
   }
-  .service-1,
-  .service-2,
+  
+  .service-2{
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0px;
+  right: 7%;
+}
+
+.service-1,
   .service-3{
-    margin-left: 0px;
+  
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 0px;
   }
-  .service-1__title,
-  .service-2__title,
-  .service-3__title{
-    font-size: 25px;
-    transform: translate(-43px, -7px);
+  /* A partir de acá, cada uno de los 3 servicios tiene sus PROPIAS
+     reglas individuales (ícono, título, texto) — ninguna está agrupada
+     con las otras. Así, tocar una nunca puede verse afectada por otra
+     regla compartida ni por el orden en que aparecen en el archivo. */
+
+  /* --- Personalización (service-1) --- */
+  .service-1__icon-img{ transform: translate(-171px, 35px); scale: 89%; }
+  .service-1__title{ font-size: 25px; transform: translate(-43px, -7px); }
+  .service-1__text{ margin-left: 0; max-width: 300px; text-align: left; transform: translate(-46px, -1px); font-size: 15px; }
+
+  /* --- Construcción (service-2) — LISTO PARA AJUSTAR A MANO.
+     .service-2 mueve TODO el bloque junto (ícono + título + texto).
+     Para moverlo hacia la izquierda o la derecha, cambiá solamente
+     el primer número de su translate() acá abajo (ej: -20px =
+     izquierda, 20px = derecha). No afecta a los otros dos servicios. --- */
+  .service-2{
+    translate: none;
+    rotate: none;
+    scale: none;
+    transform: translate(0px, 0px);
+    opacity: 1;
   }
-  .service-1__icon-img,
-  .service-2__icon-img,
-  .service-3__icon-img{
-    transform: translate(-171px, 35px);
-    scale: 89%;
-  }
-  .service-1__text,
-  .service-2__text,
-  .service-3__text{
-    margin-left: 0;
-    max-width: 300px;
-    text-align: left;
-    transform: translate(-46px, -1px);
-    font-size: 15px;
-  }
+  .service-2__icon-img{ transform: translate(-171px, 35px); scale: 89%; }
+  .service-2__title{ font-size: 25px; transform: translate(-57px, -7px); }
+  .service-2__text{ margin-left: 0; max-width: 300px; text-align: left; transform: translate(-60px, -1px); font-size: 15px; }
+
+  /* --- Restauración (service-3) — misma alineación que Personalización --- */
+  .service-3__icon-img{ transform: translate(-171px, 35px); scale: 89%; }
+  .service-3__title{ font-size: 25px; transform: translate(-60px, -8px); }
+  .service-3__text{ margin-left: 0; max-width: 300px; text-align: left; transform: translate(-46px, -1px); font-size: 15px; }
+
   .mobile-br{ display: inline; }
-  /* Construcción (service-2) — control individual, separado del resto,
-     para poder moverla sin afectar a Personalización ni Restauración. */
-  .service-2__icon-img{ transform: translate(-171px, 35px); }
-  .service-2__title{ transform: translate(-56px, -7px); }
-  .service-2__text{ transform: translate(-60px, -3px); }
   .services__col-guitar{
     display: grid;
     order: 2;
@@ -2145,7 +2171,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .video{ height: 30vh; min-height: 220px; margin-top: 28px; }
   .video__bg{ font-size: 22vw; }
 
-  .results{ display: block; padding: 47px 20px; }
+  .results{ display: block; padding: 80px 21px; }
   .results__inner{
     display: block;
     min-height: auto;
@@ -2166,7 +2192,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     max-width: 240px;
     margin: 0 0 0 75px;
     font-size: 14px;
-    transform: translate(-73px, 8px);
+    transform: translate(-73px, -5px);
   }
 
 
@@ -2225,7 +2251,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     scrollbar-width: none;
     height: auto;
     gap: 16px;
-    padding: 4px 16px 8px;
+    padding: 0px 4px 8px;
     margin-top: 10px;
   }
   .materials__grid::-webkit-scrollbar{ display: none; }
@@ -2261,7 +2287,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   }
   .materials__label{ right: -1px; left: 71px; bottom: 10px; font-size: 11px; padding: 5px 16px; letter-spacing: 0.8px; transform: translate(10px, -20px);}
 
-  .courses{ padding: 18px 20px; }
+  .courses{ padding: 40px 20px; }
 
   /* --- Contacto: inputs a todo el ancho, táctil --- */
   .contact{ padding: 70px 20px; gap: 36px; }
@@ -2301,26 +2327,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     background-repeat: no-repeat;
   }
   .results{
-    background-position-x: center;
-    background-position-y: center;
+    background-position-x: left;
+    background-position-y: top;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .pt-section{
-    background-position-x: center;
+    background-position-x: right;
     background-position-y: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .materials{
-    background-position-x: center;
+    background-position-x: initial;
     background-position-y: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .courses{
-    background-position-x: center;
-    background-position-y: center;
+    background-position-x: left;
+    background-position-y: top;
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -2343,5 +2369,5 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    ========================================================= */
 @media (max-width: 420px){
   .materials__swatch{ height: 282px; }
-  .materials__grid{ gap: 12px; }
+  .materials__grid{ gap: 29px; scale: 81%; }
 }
