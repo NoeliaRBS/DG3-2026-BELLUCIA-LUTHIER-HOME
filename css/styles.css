@@ -223,11 +223,11 @@ p{ margin:-4px;
 .hero__bg{
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 110%;
   background-image: url("../assets/images/bg-hero.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 69% center;
+  background-position: 67% center;
 }
 .hero__overlay{ position: relative; width: 100%; height: 100%;
 
@@ -323,7 +323,7 @@ p{ margin:-4px;
   background: none;
   border: none;
   padding: 0;
-  margin: -37px -3px 0;
+  margin: -33px -2px 3px;
   text-align: left;
   cursor: pointer;
   color: var(--white);
@@ -362,13 +362,13 @@ p{ margin:-4px;
 
 .hero__historia{
   position: relative;
-  width: min(659px, 56vw);
+  width: min(689px, 56vw);
   height: auto;
   /* Superposición tipográfica intencional: el sello "HISTORIA PROPIA"
      se monta sobre el renglón anterior por diseño. Es el único negativo
      que se conserva en todo el Hero, y es puramente decorativo/tipográfico,
      no estructural. */
-  margin: -57px -25px 3px;
+  margin: -63px -25px -4px;
   transition: filter .5s ease;
   transform: translate(0px, 0px); /* mover el sello de forma independiente */
 }
@@ -406,11 +406,9 @@ p{ margin:-4px;
 }
 .hero__hint{
   position: relative;
-  align-self: end;
-  justify-self: end;
-  margin: 0 6% 65px 0; /* equivale a right:6%; bottom:65px */
+  margin: 0 0 20px -3px; /* separación respecto del título; el -3px iguala el margin horizontal que ya tiene .hero__title-group, para compartir el mismo eje real */
   display: inline-flex;
-  transform: translate(0px, 0px); /* mueve texto + ícono juntos, sin separarlos */
+  transform: translate(0px, -22px); /* mueve texto + ícono juntos, sin separarlos */
 }
 .hero__hint-pulse{
   display:inline-flex;
@@ -420,7 +418,7 @@ p{ margin:-4px;
   font-size: 10px;
   letter-spacing: 1.6px;
   color: var(--green);
-  transform: translate(-1174px, -653px);
+  transform: translate(0px, 0px);
   white-space: nowrap;
 }
 .hero__hint-icon{ position: relative; width: 18px; height:18px; flex:none; }
@@ -439,22 +437,23 @@ p{ margin:-4px;
   align-self: stretch;
   font-family: var(--font-sub);
   font-weight:400;
-  font-size: 21px;
+  font-size: 20px;
   line-height: 1.2;
   color: var(--grey);
   max-width: 480px;
   text-align:left;
   /* Igual que en la Historia Propia: el párrafo se monta levemente sobre
      el cierre del sello por diseño (kerning vertical intencional). */
-  margin-top: -39px;
+  margin-top: -27px;
   transform: translate(0px, 0px); /* mover el subtítulo de forma independiente */
 }
 .hero__cta{
   position: relative;
   font-weight: 900;
   font-size: 13px;
-  padding: 12px 26px;
+  padding: 12px 23px;
   transform: translate(0px, 16px); /* mover el botón de forma independiente */
+  margin: -10px -2px;
 }
 
 
@@ -543,7 +542,7 @@ p{ margin:-4px;
 .about__photo--1,
 .about__photo--2{
   position: relative;
-  transform: translate(0px, 0px);
+  transform: translate(10px, -4px);
 }
 
 /* Flip cards (restauración de la interacción original) */
@@ -629,7 +628,7 @@ p{ margin:-4px;
   position: relative;
   grid-area: bar;
   width: 8px;
-  height: 0.62em; /* proporcional a la altura de "QUIENES" */
+  height: 31px; /* proporcional a la altura de "QUIENES" */
   margin-top: 0.06em;
   background: var(--green);
 }
@@ -640,7 +639,7 @@ p{ margin:-4px;
   font-style: normal;
   -webkit-text-stroke: 1.1px currentColor;
   font-size: 104%;
-    transform: translate(5px, 3px);
+    transform: translate(3px, 10px);
 }
 /* Corona — bloque independiente del título. Se ubica en la misma fila
    que el heading (comparten grid-row) y se mueve exclusivamente con
@@ -655,7 +654,7 @@ p{ margin:-4px;
   color: #101000;
   font-style: normal;
   -webkit-text-stroke: 1.2px currentColor; /* mismo grosor que QUIENES */
-  padding: 2px 14px 5px;
+  padding: 6px 13px 5px;
 }
 
 /* Texto */
@@ -704,8 +703,8 @@ p{ margin:-4px;
 
   .about__signature img{
       width: 200px;                  /* Ajustá el tamaño que quieras */
-      transform: translate(91px, -6px);
-      scale: 119%;
+      transform: translate(104px, -45px);
+      scale: 111%;
   }
 
 }
@@ -718,8 +717,8 @@ p{ margin:-4px;
 /* ---------- SERVICIOS ---------- */
 .services{
   position: relative;
-  background: var(--black) url('../assets/images/bg-section-1.webp') center center / cover no-repeat;
-  padding: 0px 1px 200px;
+  background: var(--black) url('../assets/images/bg-section-1.webp') right 41% / 100% no-repeat;
+  padding: 0px 1px 305px;
   overflow: hidden;
 }
 .services__grid{
@@ -762,7 +761,7 @@ opacity: 1;
   display:flex;
   align-items:center;
   gap: 8px;
-  transform: translate(6px, 16px); /* mueve "3" + SERVICIOS + QUE MÁS REALIZAMOS como un solo bloque */
+  transform: translate(6px, 120px); /* mueve "3" + SERVICIOS + QUE MÁS REALIZAMOS como un solo bloque */
 }
 .services__number{
   position: relative;
@@ -807,7 +806,7 @@ transform: translate(-37px, 62px);
 transform: translate(56px, -1px);
 }
 }
-.services__list{ display:flex; flex-direction:column; gap: 50px; transform: translate(-55px, 22px); }
+.services__list{ display:flex; flex-direction:column; gap: 39px; transform: translate(-55px, 107px); }
 .mobile-br{ display: none; } /* salto de línea exclusivo de mobile — en desktop queda oculto y el texto sigue en una sola línea/flujo normal */
 .materials__carousel-wrap{ position: relative; }
 .materials__swipe-arrow{
@@ -861,7 +860,7 @@ transform: translate(56px, -1px);
   letter-spacing: 1px;
   color: var(--white);
   margin: 0;
-  transform: translate(66px, -2px);
+  transform: translate(59px, 2px);
 }
 
 .service-1__text,
@@ -904,9 +903,9 @@ transform: translate(56px, -1px);
   position: relative;
   width: var(--services-icon-size);
   height: var(--services-icon-size);
-  max-width: 57px;
+  max-width: 53px;
   object-fit: contain;
-  transform: translate(70px, -36px);
+  transform: translate(65px, -32px);
   /* Las imágenes fuente (200x200px) se muestran reducidas: nunca se
      escalan hacia arriba, por eso conservan nitidez total. */
 }
@@ -1387,7 +1386,7 @@ transform: translate(56px, -1px);
 .materials{
   position:relative;
   background:  url('../assets/images/bg-materials.webp') center center / cover no-repeat;
-  padding: 85px 32px;
+  padding: 108px;
   overflow: hidden;
 }
 .materials__inner{
@@ -1472,7 +1471,7 @@ opacity: 1;
   font-weight: 900;
   font-size: 12px;
   letter-spacing: 1.2px;
-  transform: translate(126px, 11px);
+  transform: translate(125px, 2px);
 }
 
 
@@ -1492,7 +1491,7 @@ opacity: 1;
 .courses__desc{
   position: relative;
   max-width: 520px;
-  margin: 19px auto 0px;
+  margin: 15px auto 22px;
   font-family: var(--font-sub);
   font-weight: 500;
   font-size: 14px;
@@ -1540,8 +1539,8 @@ opacity: 1;
   position: relative;
   font-size: 13px;
   color: var(--grey);
-  margin-bottom: - 5px;
-  min-height: 46px;
+  margin-bottom: -5px;
+  min-height: 48px;
 }
 /* Bloque de info (Nivel / Duración) — réplica fiel de la referencia:
    fondo gris #2d2d2d, texto blanco, ícono chico, en fila con wrap para
@@ -1609,7 +1608,7 @@ opacity: 1;
 }
 .contact__title{
   position: relative;
-  font-size: clamp(32px, 4vw, 46px);
+  font-size: clamp(37px, 4vw, 46px);
   line-height: 1.05;
 }
 .contact__title em{ font-style:normal; color: var(--green); }
@@ -1654,7 +1653,7 @@ opacity: 1;
   text-align:center;
 }
 .footer p{
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 1px;
   color: #666;
 }
@@ -1928,7 +1927,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
      (conserva la posición actual: -4px, -47px) */
   .ver-cursos-btn{
     max-width: 326px;
-    margin: -21px 0px 4px;
+    margin: -21px 1px -7px;
   }
 
   /* Menú hamburguesa: ícono y tipografía más chicos */
@@ -1944,7 +1943,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
      mínimo necesario para que la crema cubra el contenido — en
      desktop, donde si entra a tamaño real, se usa 1915x959 sin ningún
      escalado (ver regla base .about). */
-  .about{ padding: 45px 20px 0px; background-size: auto 1594px; overflow-x: hidden; }
+  .about{ padding: 83px 20px 0px; background-size: auto 1594px; overflow-x: hidden; }
   .about__inner{ gap: 32px; }
   .about__gallery{
     flex-direction: column;
@@ -1964,7 +1963,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 
 
-  .about__photo{ width: 100%; height: 210px; aspect-ratio: auto; }
+  .about__photo{ width: 92%; height: 228px; aspect-ratio: auto; }
   .about__content{
     justify-items: center;
     text-align: center;
@@ -1972,18 +1971,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     margin: 0 auto;
     gap: 26px;
   }
-  .about__heading{ justify-self: start; margin-left: 0; font-size: 40px; }
+  .about__heading{ justify-self: start; margin-left: 0; font-size: 48px; }
   .about__foto{
     position: relative;
     display: block;
     margin: 0 auto;
-    transform: translate(68px, -1109px);
-    scale: 37%;
+    transform: translate(103px, -947px);
+    scale: 47%;
   }
   .about__crown{ justify-self: start; margin-left: 224px; transform: none; }
   .about__bar{ height: 0.6em; }
   .about__crown svg{ width: 34px; }
-  .about__title-somos{ padding: 2px 10px 4px;
+  .about__title-somos{ padding: 9px 5px 4px;
     font-size: 104%;
     @media (max-width: 640px) {
       .about__title-somos {
@@ -2003,7 +2002,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       .about__heading {
           justify-self: start;
           margin-left: -19px;
-          font-size: 40px;
+          font-size: 52px;
           transform: translate(-1px, -1px);
       }
   }
@@ -2038,13 +2037,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
      no aplica en este layout mobile de una sola columna, así que acá
      arranca en 0 y se puede ajustar libremente desde este único lugar. */
   .contact__text{
-      transform: translate(0px, 0px);
+      transform: translate(-33px, 6px);
   }
   .contact__title{
       margin: 0px;
       font-family: var(--font-display);
-      font-weight: 400;
-      transform: translate(38px, 2px);
+      font-weight: 500;
+      transform: translate(38px, -8px);
   }
   .contact__lead{
       margin: -4px;
@@ -2060,6 +2059,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       text-align: left;
       word-spacing: normal;
       letter-spacing: normal;
+      margin: 13px;
+      transform: translate(-14px, -10px);
   }
 
 }
@@ -2091,7 +2092,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     display: flex;
     flex-direction: column;
     align-items: center;
-   
     order: 1;
     gap: 0px;
   }
@@ -2104,24 +2104,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     margin: -44px 5px -14px -94px;
     max-width: 100%;
   }
-  .services__title-text{ max-width: 100%; margin-left: 0; transform: translate(15px, -29px); font-size: 23pt; }
-  .services__number{ transform: translate(-112px, 39px); font-size: 59pt ;}
+  .services__title-text{ max-width: 100%; margin-left: 0; transform: translate(32px, -31px); font-size: 25pt; }
+  .services__number{ transform: translate(-101px, 42px); font-size: 65pt ;}
   .services__list{
     gap: 0;
     margin-top: -40px;
   }
   
-  .service-2{
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0px;
-  right: 7%;
-}
-
-.service-1,
+  /* ⚠️ ESTA regla es COMPARTIDA entre los 3 servicios (fijate la coma
+     entre .service-1, .service-2, .service-3). Define el estilo base
+     igual para los tres (columna, centrado). Si la tocás, afecta a
+     los TRES a la vez. NO es acá donde se mueve Construcción sola —
+     para eso, buscá más abajo la regla ".service-2" sola (sin comas),
+     unas 25 líneas después de esta. */
+  .service-1,
+  .service-2,
   .service-3{
-  
+    margin-left: 0px;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -2133,45 +2132,52 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
      regla compartida ni por el orden en que aparecen en el archivo. */
 
   /* --- Personalización (service-1) --- */
-  .service-1__icon-img{ transform: translate(-171px, 35px); scale: 89%; }
-  .service-1__title{ font-size: 25px; transform: translate(-43px, -7px); }
-  .service-1__text{ margin-left: 0; max-width: 300px; text-align: left; transform: translate(-46px, -1px); font-size: 15px; }
+  .service-1__icon-img{ transform: translate(-168px, 39px); scale: 88%; }
+  .service-1__title{ font-size: 24px; transform: translate(-47px, -1px); }
+  .service-1__text{ margin-left: 0; max-width: 300px; text-align: left; transform: translate(-51px, -1px); font-size: 14px; }
 
   /* --- Construcción (service-2) — LISTO PARA AJUSTAR A MANO.
      .service-2 mueve TODO el bloque junto (ícono + título + texto).
      Para moverlo hacia la izquierda o la derecha, cambiá solamente
      el primer número de su translate() acá abajo (ej: -20px =
      izquierda, 20px = derecha). No afecta a los otros dos servicios. --- */
-  .service-2{
+  /* --- Construcción (service-2) — LISTO PARA AJUSTAR A MANO.
+     ⚠️ ESTA ES LA REGLA QUE MUEVE TODO EL BLOQUE JUNTO:
+     ícono de la herramienta + título "CONSTRUCCIÓN" + el texto
+     "Creamos instrumentos desde cero...". Los tres se mueven a la vez
+     cambiando el translate() de acá abajo. NO es la de .service-2__text
+     (esa mueve solo el texto solo). Esta clase es única en todo el
+     archivo, no se puede confundir con ninguna otra. */
+  .construccion-grupo-completo{
     translate: none;
     rotate: none;
     scale: none;
-    transform: translate(0px, 0px);
+    transform: translate(107px, -10px);
     opacity: 1;
   }
-  .service-2__icon-img{ transform: translate(-171px, 35px); scale: 89%; }
-  .service-2__title{ font-size: 25px; transform: translate(-57px, -7px); }
-  .service-2__text{ margin-left: 0; max-width: 300px; text-align: left; transform: translate(-60px, -1px); font-size: 15px; }
+  .service-2__icon-img{ transform: translate(-163px, 39px); scale: 88%; }
+  .service-2__title{ font-size: 24px; transform: translate(-53px, -2px); }
+  .service-2__text{ margin-left: 0; max-width: 300px; text-align: left; transform: translate(-60px, -1px); font-size: 14px; }
 
   /* --- Restauración (service-3) — misma alineación que Personalización --- */
-  .service-3__icon-img{ transform: translate(-171px, 35px); scale: 89%; }
-  .service-3__title{ font-size: 25px; transform: translate(-60px, -8px); }
-  .service-3__text{ margin-left: 0; max-width: 300px; text-align: left; transform: translate(-46px, -1px); font-size: 15px; }
+  .service-3__icon-img{ transform: translate(-163px, 42px); scale: 88%; }
+  .service-3__title{ font-size: 24px; transform: translate(-56px, -2px); }
+  .service-3__text{ margin-left: 0; max-width: 300px; text-align: left; transform: translate(-46px, -1px); font-size: 14px; }
 
   .mobile-br{ display: inline; }
   .services__col-guitar{
     display: grid;
     order: 2;
-    height: 270px;
+    height: 340px;
     margin-bottom: 0;
-    margin-top: 30px;
+    margin-top: 60px;
   }
-  .services__image{ height: 372px; margin-bottom: -57px; transform: translate(0px, 0px); opacity: 1; }
+  .services__image{ height: 465px; margin-bottom: -40px; transform: translate(0px, 9px); opacity: 1; }
 
   .video{ height: 30vh; min-height: 220px; margin-top: 28px; }
   .video__bg{ font-size: 22vw; }
 
-  .results{ display: block; padding: 80px 21px; }
+  .results{ display: block; padding: 59px 21px; }
   .results__inner{
     display: block;
     min-height: auto;
@@ -2179,9 +2185,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .results__row{ padding-left: 0; margin-top: 0; }
   .results__arrow{
     display: inline-block;
-    width: 34px;
+    width: 31px;
     height: auto;
-    margin-top: 2px;
+    margin-top: -13px;
+    transform: rotateY(200deg) rotate(124seg);
   }
 
   /* Texto: se usa la variante --mobile con salto de línea propio */
@@ -2192,7 +2199,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     max-width: 240px;
     margin: 0 0 0 75px;
     font-size: 14px;
-    transform: translate(-73px, -5px);
+    transform: translate(-73px, -12px);
   }
 
 
@@ -2218,26 +2225,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .after-photo{ transform: translate(0px, 0px); }
   .results__images{
     justify-self: stretch;
-    margin-top: 38px;
-    flex-direction:column; align-items:center; width:100%;
+    margin-top: 37px;
+    flex-direction:column; align-items:center; width:138%;
+    transform: translate(-65px, 3px);
   }
-  .results__photo{ max-width: 220px; width: 45%; }
-  .results__images img{ width:100%; height: 190px; object-fit:cover; }
-  .results__images figcaption{ font-size: 13px; }
+  .results__photo{ max-width: 234px; width: 45%; }
+  .results__images img{ width:101%; height: 286px; object-fit:cover; }
+  .results__images figcaption{ font-size: 13px;transform: translate(1px, -5px); }
 
   /* --- Materiales: 2 columnas, protagonismo de la textura --- */
-  .materials{ padding: 56px 0 56px; }
+  .materials{ padding: 46px 0 111px; }
   .materials__inner{ aspect-ratio: auto; }
   .materials__header{ padding: 0 20px; text-align: left; }
-  .materials__title em{ margin-left: 42px; }
+  .materials__title em{ margin-left: 42px; transform: translate(14px, -1px); }
 
   /* Texto: se usa la variante --mobile con salto e interlínea propios */
   .materials__desc--desktop{ display:none; }
   .materials__desc--mobile{ display:block; }
   .materials__desc{
     max-width: 280px;
-    margin: 8px 0 0;
-    line-height: 1.2;
+    margin: -12px 0 0;
+    font-size: 13px;
+    line-height: 1.3;
     text-align: left;
   }
   .materials__desc--mobile .materials__desc-line{ display: block; }
@@ -2250,9 +2259,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     height: auto;
-    gap: 16px;
-    padding: 0px 4px 8px;
-    margin-top: 10px;
+    gap: 4px;
+    padding: 0px 20px 8px 4px;
+    margin-top: 0px;
+    transform: translate(4px, -17px);
+    scale:89%
   }
   .materials__grid::-webkit-scrollbar{ display: none; }
   .materials__swipe-arrow{
@@ -2260,8 +2271,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 48%;
+    transform: translateY(-105%);
     width: auto;
     height: auto;
     background: none;
@@ -2274,20 +2285,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     opacity: 1;
     text-shadow: 0 2px 6px rgba(0,0,0,.5);
   }
-  .materials__swipe-arrow--left{ left: 7px;transform: translate(10px, -65px); }
-  .materials__swipe-arrow--right{ right: 13px;transform: translate(-8px, -70px); }
+  .materials__swipe-arrow--left{ left: 4px; }
+  .materials__swipe-arrow--right{ right: 4px; }
   .materials__item{
-    flex: 0 0 calc(50% - 10px);
-    scroll-snap-align: none;
+    flex: 0 0 calc(50% -2px);
+    scroll-snap-align: start;
   }
   .materials__item:nth-child(odd){ scroll-snap-align: start; }
+  .materials__item:first-child{ margin-left: 0; }
   .materials__swatch{
     width: 100%;
-    height: 282px;
+    height: 289px;
   }
-  .materials__label{ right: -1px; left: 71px; bottom: 10px; font-size: 11px; padding: 5px 16px; letter-spacing: 0.8px; transform: translate(10px, -20px);}
+  .materials__label{
+    right: auto; left: 84px; bottom: 22px;
+    width: 82px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 19px 0 0; margin: 0;
+    font-size: 10px; letter-spacing: 0.6px; line-height: 1;
+    text-align: center;
+    transform: translate(19px, -15px);
+  }
 
   .courses{ padding: 40px 20px; }
+  .course-card h3{ min-height: 45px; }
 
   /* --- Contacto: inputs a todo el ancho, táctil --- */
   .contact{ padding: 70px 20px; gap: 36px; }
@@ -2367,7 +2388,49 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* =========================================================
    RESPONSIVE — MOBILE ANGOSTO (390px / 360px, iPhone 15/16 Pro)
    ========================================================= */
-@media (max-width: 420px){
-  .materials__swatch{ height: 282px; }
-  .materials__grid{ gap: 29px; scale: 81%; }
+
+/* ==========================
+   BLOQUES COMPLETOS
+   ========================== */
+
+   .personalizacion-grupo-completo{
+    transform: translate(0px, 0px);
+}
+
+.construccion-grupo-completo{
+    transform: translate(114px, -19px);
+}
+
+.restauracion-grupo-completo{
+    transform: translate(5px, -17px);
+}
+
+
+@media (max-width: 768px) {
+  .course-1-description,
+  .course-2-description,
+  .course-3-description {
+    transform: translate(5px, -17px);
+  }
+}
+
+@media (max-width: 768px) {
+  .course-card__meta.course-meta-wrapper.course-1-meta {
+   
+    transform: translateX(-2px) translateY(-27px);
+  }
+}
+@media (max-width: 768px) {
+  .course-card__meta.course-meta-wrapper.course-2-meta,
+  .course-card__meta.course-meta-wrapper.course-3-meta {
+    transform: translateX(-2px) translateY(-27px); /* Ajustá el valor según necesites */
+  }
+}
+@media (max-width: 768px) {
+  .course-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: -2px;
+  }
 }
