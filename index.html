@@ -67,6 +67,12 @@
     <div class="hero__spotlight hero__layer" id="heroSpotlight" aria-hidden="true"></div>
     <img class="hero__guitar-accent hero__layer" src="assets/images/img-05.png" alt="" aria-hidden="true" loading="eager">
     <div class="hero__content hero__layer">
+      <span class="hero__hint" aria-hidden="true">
+        <span class="hero__hint-pulse">
+          <img class="hero__hint-icon" src="assets/icons/icon-sound.png" alt="" aria-hidden="true">
+          CLICKEÁ EL TÍTULO PARA ESCUCHAR
+        </span>
+      </span>
       <button type="button" class="hero__title-group" id="heroTitleGroup" aria-label="Reproducir sonido de guitarra">
         <h1 class="hero__title">
           <span class="hero__title-line hero__title-tu-sonido">TU SONIDO</span>
@@ -78,15 +84,9 @@
         
       </button>
       
-      <p class="hero__text hero__text--mobile">Sumate a nuestros cursosy aprende<br> a armar tu guitarra desde cero</p>
+      <p class="hero__text hero__text--mobile">Sumate a nuestros cursos y aprende<br> a armar tu guitarra desde cero</p>
       <a href="#trastes-curso" class="btn btn--primary hero__cta ver-cursos-btn">VER CURSOS</a>
     </div>
-    <span class="hero__hint hero__layer" aria-hidden="true">
-      <span class="hero__hint-pulse">
-        <img class="hero__hint-icon" src="assets/icons/icon-sound.png" alt="" aria-hidden="true">
-        CLICKEÁ EL TÍTULO PARA ESCUCHAR
-      </span>
-    </span>
   </section>
 
   <!-- QUIENES SOMOS -->
@@ -131,12 +131,10 @@
         </span>
 
         <div class="about__text about__text--desktop">
-          <p>Desde 2018 construimos, restauramos y personalizamos instrumentos de manera artesanal, cuidando cada detalle para que cada guitarra tenga carácter propio.</p>
-          <p>Cada guitarra se construye de manera artesanal, cuidando cada detalle para lograr una pieza única, pensada para durar.</p>
+          <p>Desde 2018 construimos, restauramos y personalizamos instrumentos de manera artesanal, cuidando cada detalle para que cada guitarra tenga carácter propio.<br>Cada guitarra se construye de manera artesanal, cuidando cada detalle para lograr una pieza única, pensada para durar.</p>
         </div>
         <div class="about__text about__text--mobile">
-          <p>Desde 2018 construimos, restauramos y personalizamos instrumentos de manera artesanal, cuidando cada detalle para que cada guitarra tenga carácter propio.</p>
-          <p>Cada guitarra se construye de manera artesanal, cuidando cada detalle para lograr una pieza única.</p>
+          <p>Desde 2018 construimos, restauramos y personalizamos instrumentos de manera artesanal, cuidando cada detalle para que cada guitarra tenga carácter propio.<br>Cada guitarra se construye de manera artesanal, cuidando cada detalle para lograr una pieza única.</p>
         </div>
 
         <div class="about__signature">
@@ -149,43 +147,63 @@
   </section>
 
   <!-- SERVICIOS -->
-  <section class="services" id="servicios">
-    <div class="services__grid">
-      <div class="services__col-text">
-        <h2 class="services__title">
-          <span class="services__number">3</span>
-          <span class="services__title-text">SERVICIOS<br><em>QUE MÁS REALIZAMOS</em></span>
-        </h2>
-        <ul class="services__list">
-          <li class="service-1">
-            <span class="service-1__icon">
-              <img class="service-1__icon-img" src="assets/icons/icon-personalizacion.png" alt="Personalización" loading="lazy">
-            </span>
-            <div class="service-1__body">
-              <h3 class="service-1__title">PERSONALIZACIÓN</h3>
-              <p class="service-1__text">Modificamos estética, hardware<br class="mobile-br"> y configuración para transformar cada<br class="mobile-br"> instrumento en una pieza única.</p>
-            </div>
-          </li>
-          <li class="service-2">
-            <span class="service-2__icon">
-              <img class="service-2__icon-img" src="assets/icons/icon-construccion.png" alt="Construcción" loading="lazy">
-            </span>
-            <div class="service-2__body">
-              <h3 class="service-2__title">CONSTRUCCIÓN</h3>
-              <p class="service-2__text">Creamos instrumentos desde<br class="mobile-br"> cero adaptados a tu sonido, estilo<br class="mobile-br"> y forma de tocar.</p>
-            </div>
-          </li>
-          <li class="service-3">
-            <span class="service-3__icon">
-              <img class="service-3__icon-img" src="assets/icons/icon-restauracion.png" alt="Restauración" loading="lazy">
-            </span>
-            <div class="service-3__body">
-              <h3 class="service-3__title">RESTAURACIÓN</h3>
-              <p class="service-3__text">Optimizamos instrumentos existentes<br class="mobile-br"> recuperando su esencia y mejorando<br class="mobile-br"> su rendimiento.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
+<section class="services" id="servicios">
+  <div class="services__grid">
+    <div class="services__col-text">
+      <h2 class="services__title">
+        <span class="services__number">3</span>
+        <span class="services__title-text">SERVICIOS<br><em>QUE MÁS REALIZAMOS</em></span>
+      </h2>
+
+      <ul class="services__list">
+
+        <!-- PERSONALIZACIÓN -->
+        <li class="service-1">
+          <span class="service-1__icon">
+            <img class="service-1__icon-img" src="assets/icons/icon-personalizacion.png" alt="Personalización" loading="lazy">
+          </span>
+          <div class="service-1__body">
+            <h3 class="service-1__title">PERSONALIZACIÓN</h3>
+            <p class="service-1__text">
+              Modificamos estética, hardware<br class="mobile-br">
+              y configuración para transformar cada<br class="mobile-br">
+              instrumento en una pieza única.
+            </p>
+          </div>
+        </li>
+
+        <!-- CONSTRUCCIÓN -->
+        <li class="service-2 construccion-grupo-completo">
+          <span class="service-2__icon">
+            <img class="service-2__icon-img" src="assets/icons/icon-construccion.png" alt="Construcción" loading="lazy">
+          </span>
+          <div class="service-2__body">
+            <h3 class="service-2__title">CONSTRUCCIÓN</h3>
+            <p class="service-2__text">
+              Creamos instrumentos desde<br class="mobile-br">
+              cero adaptados a tu sonido, estilo<br class="mobile-br">
+              y forma de tocar.
+            </p>
+          </div>
+        </li>
+
+        <!-- RESTAURACIÓN -->
+        <li class="service-3 restauracion-grupo-completo">
+          <span class="service-3__icon">
+            <img class="service-3__icon-img" src="assets/icons/icon-restauracion.png" alt="Restauración" loading="lazy">
+          </span>
+          <div class="service-3__body">
+            <h3 class="service-3__title">RESTAURACIÓN</h3>
+            <p class="service-3__text">
+              Optimizamos instrumentos existentes<br class="mobile-br">
+              recuperando su esencia y mejorando<br class="mobile-br">
+              su rendimiento.
+            </p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
 
       <div class="services__col-guitar">
         <div class="services__glow" aria-hidden="true"></div>
@@ -240,8 +258,8 @@
         </p>
       </div>
       <p class="results__text results__text--mobile">
-        <span class="results__text-line">Cada instrumento atraviesa</span>
-        <span class="results__text-line results__text-line--2">un proceso artesanal y un cuidado <br> en cada una de sus etapas.</span>
+        <span class="results__text-line">Cada instrumento atraviesa un</span>
+        <span class="results__text-line results__text-line--2">proceso artesanal.</span>
         <span class="results__text-line results__text-line--3"></span>
       </p>
       <div class="results__images">
@@ -305,7 +323,7 @@
       <div class="materials__header">
         <h2 class="materials__title">MATERIALES<br><em>QUE USAMOS</em></h2>
         <p class="materials__desc materials__desc--desktop"><span class="materials__desc-line">Seleccionamos materiales</span><span class="materials__desc-line materials__desc-line--b"> por su calidad, estética y respuesta sonora.</span><br><span class="materials__desc-line materials__desc-line--c">Cada madera aporta una personalidad diferente</span><span class="materials__desc-line materials__desc-line--d"> al instrumento.</span></p>
-        <p class="materials__desc materials__desc--mobile"><span class="materials__desc-line">Seleccionamos materiales por su calidad,</span><span class="materials__desc-line materials__desc-line--b">estética y respuesta sonora.</span></p>
+        <p class="materials__desc materials__desc--mobile"><span class="materials__desc-line">Seleccionamos materiales por su </span><span class="materials__desc-line materials__desc-line--b">calidad estética y respuesta sonora.</span><span class="materials__desc-line materials__desc-line--c">Cada madera aporta una personalidad</span><span class="materials__desc-line materials__desc-line--d">diferente al instrumento.</span></p>
       </div>
       <div class="materials__carousel-wrap">
         <button type="button" class="materials__swipe-arrow materials__swipe-arrow--left" aria-label="Ver madera anterior">‹</button>
@@ -343,59 +361,113 @@
   <!-- NUEVA SECCIÓN: CURSOS -->
   <section class="courses" id="trastes-curso">
     <h2 class="courses__title">ARMÁ TU GUITARRA<br><em>DESDE CERO</em></h2>
-    <p class="courses__desc">Aprendé el oficio de luthier paso a paso con cursos <br> pensados para todos los niveles.</p>
+  
+    <p class="courses__desc">
+      Aprendé el oficio de luthier paso a paso con cursos <br>
+      pensados para todos los niveles.
+    </p>
+  
     <div class="courses__grid">
+  
+      <!-- CURSO 1 -->
       <article class="course-card course-card--1">
-        <div class="course-card__img"><img src="assets/images/img-14.webp" alt="Introducción a la luthería" loading="lazy"></div>
+  
+        <div class="course-card__img">
+          <img src="assets/images/img-14.webp" alt="Introducción a la luthería" loading="lazy">
+        </div>
+  
         <h3>INTRODUCCIÓN A LA LUTHERÍA</h3>
-        <p>Aprendé herramientas, maderas y procesos básicos.</p>
-        <div class="course-card__meta course-meta-wrapper">
+  
+        <p class="course-1-description">
+          Aprendé herramientas, maderas y procesos básicos.
+        </p>
+  
+        <div class="course-card__meta course-meta-wrapper course-1-meta">
           <span class="course-card__tag">
             <img class="course-card__tag-icon" src="assets/icons/icon-level.png" alt="">
             Nivel: Principiante
           </span>
+  
           <span class="course-card__tag">
             <img class="course-card__tag-icon" src="assets/icons/icon-duration.png" alt="">
             Duración: 6 semanas
           </span>
         </div>
+  
         <span class="course-card__price course-card__price--1">$120.000</span>
-        <a href="https://noeliarbs.github.io/DG3-2026-BELLUCIA-DETALLE/" class="btn btn--outline course-card__btn course-card__btn--1">INSCRIBIRME</a>
+  
+        <a href="https://noeliarbs.github.io/DG3-2026-BELLUCIA-DETALLE/" class="btn btn--outline course-card__btn course-card__btn--1">
+          INSCRIBIRME
+        </a>
+  
       </article>
+  
+      <!-- CURSO 2 -->
       <article class="course-card course-card--2">
-        <div class="course-card__img"><img src="assets/images/img-15.webp" alt="Construí tu primera guitarra" loading="lazy"></div>
+  
+        <div class="course-card__img">
+          <img src="assets/images/img-15.webp" alt="Construí tu primera guitarra" loading="lazy">
+        </div>
+  
         <h3>CONSTRUÍ TU PRIMERA GUITARRA</h3>
-        <p>Fabricá tu guitarra desde cero paso a paso.</p>
-        <div class="course-card__meta course-meta-wrapper">
+  
+        <p class="course-2-description">
+          Fabricá tu guitarra desde cero paso a paso.
+        </p>
+  
+        <div class="course-card__meta course-meta-wrapper course-2-meta">
           <span class="course-card__tag">
             <img class="course-card__tag-icon" src="assets/icons/icon-level.png" alt="">
             Nivel: Avanzado
           </span>
+  
           <span class="course-card__tag">
             <img class="course-card__tag-icon" src="assets/icons/icon-duration.png" alt="">
             Duración: 9 semanas
           </span>
         </div>
+  
         <span class="course-card__price course-card__price--2">$280.000</span>
-        <a href="#contacto" class="btn btn--outline course-card__btn course-card__btn--2">INSCRIBIRME</a>
+  
+        <a href="#contacto" class="btn btn--outline course-card__btn course-card__btn--2">
+          INSCRIBIRME
+        </a>
+  
       </article>
+  
+      <!-- CURSO 3 -->
       <article class="course-card course-card--3">
-        <div class="course-card__img"><img src="assets/images/img-16.webp" alt="Personalización y restauración" loading="lazy"></div>
+  
+        <div class="course-card__img">
+          <img src="assets/images/img-16.webp" alt="Personalización y restauración" loading="lazy">
+        </div>
+  
         <h3>PERSONALIZACIÓN Y RESTAURACIÓN</h3>
-        <p>Aprendé pintura, electrónica, calibración y reparación.</p>
-        <div class="course-card__meta course-meta-wrapper">
+  
+        <p class="course-3-description">
+          Aprendé pintura, electrónica, calibración y reparación.
+        </p>
+  
+        <div class="course-card__meta course-meta-wrapper course-3-meta">
           <span class="course-card__tag">
             <img class="course-card__tag-icon" src="assets/icons/icon-level.png" alt="">
             Nivel: Medio
           </span>
+  
           <span class="course-card__tag">
             <img class="course-card__tag-icon" src="assets/icons/icon-duration.png" alt="">
             Duración: 7 semanas
           </span>
         </div>
+  
         <span class="course-card__price course-card__price--3">$180.000</span>
-        <a href="#contacto" class="btn btn--outline course-card__btn course-card__btn--3">INSCRIBIRME</a>
+  
+        <a href="#contacto" class="btn btn--outline course-card__btn course-card__btn--3">
+          INSCRIBIRME
+        </a>
+  
       </article>
+  
     </div>
   </section>
 
@@ -435,5 +507,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
 <script src="js/script.js"></script>
+</body>
+</html>
+
 </body>
 </html>
