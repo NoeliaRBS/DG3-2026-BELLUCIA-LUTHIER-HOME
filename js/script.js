@@ -375,87 +375,104 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- Quienes somos --- */
     gsap.from('.about__photo--1', {
       x: -60, opacity: 0, duration: 1, ease: 'power3.out',
-      scrollTrigger: { trigger: '.about', start: 'top 75%' }
+      scrollTrigger: { trigger: '.about', start: 'top 75%' },
+      clearProps: 'transform,opacity'
     });
     gsap.from('.about__photo--2', {
       x: 60, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.15,
-      scrollTrigger: { trigger: '.about', start: 'top 75%' }
+      scrollTrigger: { trigger: '.about', start: 'top 75%' },
+      clearProps: 'transform,opacity'
     });
     gsap.from('.about__content', {
       opacity: 0, y: 40, duration: 1, ease: 'power3.out',
-      scrollTrigger: { trigger: '.about__content', start: 'top 85%' }
+      scrollTrigger: { trigger: '.about__content', start: 'top 85%' },
+      clearProps: 'transform,opacity'
     });
 
     /* --- Servicios: fade up --- */
     gsap.from('.services__title', {
       opacity: 0, y: 40, duration: 0.9,
-      scrollTrigger: { trigger: '.services', start: 'top 80%' }
+      scrollTrigger: { trigger: '.services', start: 'top 80%' },
+      clearProps: 'transform,opacity'
     });
     gsap.utils.toArray('.service-1, .service-2, .service-3').forEach((item) => {
       gsap.from(item, {
         opacity: 0, y: 50, duration: 0.8, ease: 'power3.out',
-        scrollTrigger: { trigger: item, start: 'top 88%' }
+        scrollTrigger: { trigger: item, start: 'top 88%' },
+        clearProps: 'transform,opacity'
       });
     });
     gsap.from('.services__image', {
       opacity: 0, y: 50, duration: 1,
-      scrollTrigger: { trigger: '.services__image', start: 'top 85%' }
+      scrollTrigger: { trigger: '.services__image', start: 'top 85%' },
+      clearProps: 'transform,opacity'
     });
 
     /* --- Video: fade --- */
     gsap.from('.video', {
       opacity: 0, duration: 1.1,
-      scrollTrigger: { trigger: '.video', start: 'top 85%' }
+      scrollTrigger: { trigger: '.video', start: 'top 85%' },
+      clearProps: 'transform,opacity'
     });
 
     /* --- Resultados: fade --- */
     gsap.from('.results__heading', {
       opacity: 0, y: 30, duration: 1,
-      scrollTrigger: { trigger: '.results', start: 'top 80%' }
+      scrollTrigger: { trigger: '.results', start: 'top 80%' },
+      clearProps: 'transform,opacity'
     });
     gsap.from('.results__images figure', {
       opacity: 0, y: 40, duration: 0.9, stagger: 0.2,
-      scrollTrigger: { trigger: '.results__images', start: 'top 85%' }
+      scrollTrigger: { trigger: '.results__images', start: 'top 85%' },
+      clearProps: 'transform,opacity'
     });
 
     /* --- Personaliza tu instrumento --- */
     gsap.from('.pt-title, .pt-title__arrow, .pt-tagline', {
       opacity: 0, x: -40, duration: 1,
-      scrollTrigger: { trigger: '.pt-section', start: 'top 80%' }
+      scrollTrigger: { trigger: '.pt-section', start: 'top 80%' },
+      clearProps: 'transform,opacity'
     });
     gsap.from('.pt-block', {
       opacity: 0, y: 30, duration: 0.8, stagger: 0.12,
-      scrollTrigger: { trigger: '.pt-section', start: 'top 70%' }
+      scrollTrigger: { trigger: '.pt-section', start: 'top 70%' },
+      clearProps: 'transform,opacity'
     });
 
     /* --- Materiales: fade escalonado --- */
     gsap.from('.materials__title, .materials__desc', {
       opacity: 0, y: 30, duration: 0.9,
-      scrollTrigger: { trigger: '.materials', start: 'top 80%' }
+      scrollTrigger: { trigger: '.materials', start: 'top 80%' },
+      clearProps: 'transform,opacity'
     });
     gsap.from('.materials__grid li', {
       opacity: 0, y: 40, duration: 0.7, stagger: 0.15,
-      scrollTrigger: { trigger: '.materials__grid', start: 'top 85%' }
+      scrollTrigger: { trigger: '.materials__grid', start: 'top 85%' },
+      clearProps: 'transform,opacity'
     });
 
     /* --- Cursos: aparición escalonada --- */
     gsap.from('.courses__title, .courses__desc', {
       opacity: 0, y: 30, duration: 0.9,
-      scrollTrigger: { trigger: '.courses', start: 'top 80%' }
+      scrollTrigger: { trigger: '.courses', start: 'top 80%' },
+      clearProps: 'transform,opacity'
     });
     gsap.from('.course-card', {
       opacity: 0, y: 50, duration: 0.8, stagger: 0.18,
-      scrollTrigger: { trigger: '.courses__grid', start: 'top 82%' }
+      scrollTrigger: { trigger: '.courses__grid', start: 'top 82%' },
+      clearProps: 'transform,opacity'
     });
 
     /* --- Formulario: fade up --- */
     gsap.from('.contact__text', {
       opacity: 0, y: 30, duration: 1,
-      scrollTrigger: { trigger: '.contact', start: 'top 80%' }
+      scrollTrigger: { trigger: '.contact', start: 'top 80%' },
+      clearProps: 'transform,opacity'
     });
     gsap.from('.contact__form', {
       opacity: 0, y: 40, duration: 1, delay: 0.1,
-      scrollTrigger: { trigger: '.contact', start: 'top 80%' }
+      scrollTrigger: { trigger: '.contact', start: 'top 80%' },
+      clearProps: 'transform,opacity'
     });
 
   ScrollTrigger.refresh();
